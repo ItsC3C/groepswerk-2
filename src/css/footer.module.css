@@ -1,17 +1,16 @@
 .footer {
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 87px;
-    display: flex;
-    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4rem;
     color: #FAFAFA;
-    padding: 80px 135px;
     font-family: 'Poppins', sans-serif;
+    padding: 3rem 8rem;
 
     .ExclusiveSection,
     .SupportSection,
     .AccountSection,
-    .QuickLinkSection {
+    .QuickLinkSection,
+    .DownloadAppSection {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
@@ -19,28 +18,37 @@
     }
 
     .ExclusiveSection {
-
-        .Exclusive {
-            font-size: 24px;
-            font-weight: 800;
-            word-wrap: break-word;
-        }
-
-        .ExclusiveHolder,
-        .Holder {
+        .ExclusiveHolder {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 24px;
+            gap: 1.5rem;
             display: inline-flex;
-        }
 
-        .discount {
-            font-weight: lighter;
-            font-size: 16px;
-            line-height: 24px;
-            word-wrap: break-word;
-            padding-bottom: 15px;
+            .Holder {
+                .Logo {
+                    .Exclusive {
+                        font-size: 1.5rem;
+                        font-weight: 800;
+                        word-wrap: break-word;
+                        padding-bottom: 1.875rem;
+                    }
+                }
+
+                .Subscribe {
+                    font-size: 1.25rem;
+                    line-height: 1.75rem;
+                    word-wrap: break-word;
+                }
+            }
+
+            .discount {
+                font-weight: lighter;
+                font-size: 0.9375rem;
+                line-height: 1.5rem;
+                word-wrap: break-word;
+                padding-bottom: 0.9375rem;
+            }
         }
 
         .SendMail {
@@ -48,70 +56,68 @@
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
-            gap: 32px;
-            border: 1px solid #FAFAFA;
-            border-radius: 4px;
-            padding: 12px 16px;
+            gap: 2rem;
+            border: 0.0625rem solid #FAFAFA;
+            border-radius: 0.25rem;
+            padding: 0.75rem 1rem;
 
             .EnterYourEmail {
                 opacity: 0.4;
-                font-size: 16px;
-                line-height: 24px;
+                font-size: 1rem;
+                line-height: 1.5rem;
                 word-wrap: break-word;
                 flex-grow: 1;
                 border: none;
                 background: transparent;
                 color: #FAFAFA;
-                padding: 0;
             }
 
             .IconSend {
-                width: 24px;
-                height: 24px;
+                width: 1.5rem;
+                height: 1.5rem;
             }
         }
     }
 
     .SupportSection {
         .Support {
-            line-height: 28px;
-            word-wrap: break-word;
-            padding-bottom: 14px;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 800;
+            word-wrap: break-word;
+            padding-bottom: 1.875rem;
         }
 
         .Holder {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 16px;
+            gap: 1rem;
             display: inline-flex;
         }
 
         .Adress,
         .Mail,
         .Phone {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: lighter;
-            line-height: 24px;
+            line-height: 1.5rem;
             word-wrap: break-word;
         }
     }
 
     .AccountSection {
         .Account {
-            padding-bottom: 14px;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 800;
             word-wrap: break-word;
+            padding-bottom: 1.875rem;
         }
 
         .Holder {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 16px;
+            gap: 1rem;
             display: inline-flex;
         }
 
@@ -120,26 +126,26 @@
         .Cart,
         .Wishlist,
         .Shop {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: lighter;
-            line-height: 24px;
+            line-height: 1.5rem;
             word-wrap: break-word;
         }
     }
 
     .QuickLinkSection {
         .QuickLinks {
-            padding-bottom: 14px;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 800;
             word-wrap: break-word;
+            padding-bottom: 1.875rem;
         }
 
         .Holder {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 16px;
+            gap: 1rem;
             display: inline-flex;
         }
 
@@ -147,10 +153,105 @@
         .TermsOfUse,
         .FAQ,
         .Contact {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: lighter;
-            line-height: 24px;
+            line-height: 1.5rem;
             word-wrap: break-word;
+        }
+    }
+
+    .DownloadAppSection {
+        .Holder {
+            .DownloadApp {
+                font-size: 1.5rem;
+                font-weight: 800;
+                word-wrap: break-word;
+                padding-bottom: 1.875rem;
+            }
+
+            .DetailHolder {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 0.5rem;
+                display: inline-flex;
+
+                .Coupon {
+                    opacity: 0.7;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    line-height: 1.125rem;
+                    word-wrap: break-word;
+                }
+            }
+
+            .DownloadAppHolder {
+                justify-content: flex-start;
+                align-items: center;
+                gap: 0.5rem;
+                display: inline-flex;
+
+                .QrCode {
+                    width: 5rem;
+                    height: 5rem;
+                    border: 0.0625rem solid #FAFAFA;
+                    border-radius: 0.3125rem;
+
+                    .Qrcode1 {
+                        width: 4.75rem;
+                        height: 4.75rem;
+                    }
+                }
+
+                .DownloadAppStoreHolder {
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 0.25rem;
+                    display: inline-flex;
+
+                    .GooglePlay {
+                        width: 6.875rem;
+                        height: 2.5rem;
+                        background: #030406;
+                        position: relative;
+
+                        .GooglePlayLogo {
+                            width: 6.5rem;
+                            height: 1.875rem;
+                            position: absolute;
+                            left: 0.1875rem;
+                            top: 0.3125rem;
+                            border: 0.0625rem solid #FAFAFA;
+                            border-radius: 0.3125rem;
+                        }
+                    }
+
+                    .Appstore {
+                        width: 6.875rem;
+                        height: 2.5rem;
+                        background: black;
+                        justify-content: center;
+                        align-items: center;
+                        display: inline-flex;
+
+                        .AppStoreLogo {
+                            width: 6.5rem;
+                            height: 2.125rem;
+                            left: 0.1875rem;
+                            top: 0.3125rem;
+                            border: 0.0625rem solid #FAFAFA;
+                            border-radius: 0.3125rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .SocialsHolder {
+            padding-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
         }
     }
 }
