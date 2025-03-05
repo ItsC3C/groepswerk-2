@@ -5,7 +5,7 @@ const SupportSection = () => {
     <div className={style.SupportSection}>
       <div className={style.Support}>Support</div>
       <div className={style.Frame712}>
-        <div className={style.Address}>
+        <div className={style.Adress}>
           111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
         </div>
         <div className={style.Mail}>exclusive@gmail.com</div>
