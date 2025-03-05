@@ -7,13 +7,18 @@ import DownloadAppSection from "./footer-sections/DownloadAppSection.tsx";
 
 const Footer = () => {
   return (
-    <div className={style.footer}>
-      <ExclusiveSection />
-      <SupportSection />
-      <AccountSection />
-      <QuickLinkSection />
-      <DownloadAppSection />
-    </div>
+    <footer>
+      <div className={style.footer}>
+        <ExclusiveSection />
+        <SupportSection />
+        <AccountSection />
+        <QuickLinkSection />
+        <DownloadAppSection />
+      </div>
+      <div className={style.copyright}>
+        © Copyright 2025 Groepswerk 2. All rights reserved
+      </div>
+    </footer>
   );
 };
 export default Footer;
