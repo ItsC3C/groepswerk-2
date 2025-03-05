@@ -31,14 +31,18 @@
                 .Logo {
                     width: 118px;
                     height: 24px;
+                    padding-bottom: 14px;
+
+                    .Exclusive {
+                        font-size: 24px;
+                        font-weight: 800;
+                        width: 118px;
+                        height: 24px;
+                        letter-spacing: 0.72px;
+                        word-wrap: break-word;
+                    }
                 }
 
-                .Exclusive {
-                    font-size: 24px;
-                    font-weight: 800;
-                }
-
-                .Exclusive,
                 .Subscribe {
                     width: 118px;
                     height: 24px;
@@ -80,6 +84,46 @@
             .IconSend {
                 width: 24px;
                 height: 24px;
+            }
+        }
+    }
+
+    .SupportSection {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+        display: inline-flex;
+
+        .Support {
+            line-height: 28px;
+            word-wrap: break-word;
+            padding-bottom: 14px;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .Frame712 {
+            font-family: 'Poppins', sans-serif;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 16px;
+            display: inline-flex;
+
+            .Adress,
+            .Mail,
+            .Phone {
+                color: #FAFAFA;
+                font-size: 16px;
+                font-family: "Poppins";
+                font-weight: 400;
+                line-height: 24px;
+                word-wrap: break-word;
+            }
+
+            .Adress {
+                width: 175px;
             }
         }
     }
