@@ -4,7 +4,7 @@ const SupportSection = () => {
   return (
     <div className={style.SupportSection}>
       <div className={style.Support}>Support</div>
-      <div className={style.Frame712}>
+      <div className={style.Holder}>
         <div className={style.Adress}>
           111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
         </div>

@@ -4,8 +4,8 @@ import SendMailSection from "./SendMailSection.tsx";
 const ExclusiveSection = () => {
   return (
     <div className={style.ExclusiveSection}>
-      <div className={style.Frame716}>
-        <div className={style.Frame715}>
+      <div className={style.ExclusiveHolder}>
+        <div className={style.Holder}>
           <div className={style.Logo}>
             <div className={style.Exclusive}>Exclusive</div>
           </div>

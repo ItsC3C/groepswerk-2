@@ -8,56 +8,39 @@
     padding: 80px 135px;
     font-family: 'Poppins', sans-serif;
 
-    .ExclusiveSection {
+    .ExclusiveSection,
+    .SupportSection,
+    .AccountSection,
+    .QuickLinkSection {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: 16px;
         display: inline-flex;
+    }
 
-        .Frame716 {
+    .ExclusiveSection {
+
+        .Exclusive {
+            font-size: 24px;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .ExclusiveHolder,
+        .Holder {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
             gap: 24px;
             display: inline-flex;
+        }
 
-            .Frame715 {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 24px;
-                display: inline-flex;
-
-                .Logo {
-                    width: 118px;
-                    height: 24px;
-                    padding-bottom: 14px;
-
-                    .Exclusive {
-                        font-size: 24px;
-                        font-weight: 800;
-                        width: 118px;
-                        height: 24px;
-                        letter-spacing: 0.72px;
-                        word-wrap: break-word;
-                    }
-                }
-
-                .Subscribe {
-                    width: 118px;
-                    height: 24px;
-                    letter-spacing: 0.72px;
-                    word-wrap: break-word;
-                }
-            }
-
-            .discount {
-                font-weight: lighter;
-                font-size: 16px;
-                line-height: 24px;
-                word-wrap: break-word;
-            }
+        .discount {
+            font-weight: lighter;
+            font-size: 16px;
+            line-height: 24px;
+            word-wrap: break-word;
+            padding-bottom: 15px;
         }
 
         .SendMail {
@@ -90,12 +73,6 @@
     }
 
     .SupportSection {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 16px;
-        display: inline-flex;
-
         .Support {
             line-height: 28px;
             word-wrap: break-word;
@@ -104,31 +81,25 @@
             font-weight: 800;
         }
 
-        .Frame712 {
+        .Holder {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
             gap: 16px;
             display: inline-flex;
+        }
 
-            .Adress,
-            .Mail,
-            .Phone {
-                font-size: 16px;
-                font-weight: lighter;
-                line-height: 24px;
-                word-wrap: break-word;
-            }
+        .Adress,
+        .Mail,
+        .Phone {
+            font-size: 16px;
+            font-weight: lighter;
+            line-height: 24px;
+            word-wrap: break-word;
         }
     }
 
     .AccountSection {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 24px;
-        display: inline-flex;
-
         .Account {
             padding-bottom: 14px;
             font-size: 24px;
@@ -136,23 +107,50 @@
             word-wrap: break-word;
         }
 
-        .Frame710 {
+        .Holder {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
             gap: 16px;
             display: inline-flex;
+        }
 
-            .MyAccount,
-            .LoginRegister,
-            .Cart,
-            .Wishlist,
-            .Shop {
-                font-size: 16px;
-                font-weight: lighter;
-                line-height: 24px;
-                word-wrap: break-word;
-            }
+        .MyAccount,
+        .LoginRegister,
+        .Cart,
+        .Wishlist,
+        .Shop {
+            font-size: 16px;
+            font-weight: lighter;
+            line-height: 24px;
+            word-wrap: break-word;
+        }
+    }
+
+    .QuickLinkSection {
+        .QuickLinks {
+            padding-bottom: 14px;
+            font-size: 24px;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .Holder {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 16px;
+            display: inline-flex;
+        }
+
+        .PrivacyPolicy,
+        .TermsOfUse,
+        .FAQ,
+        .Contact {
+            font-size: 16px;
+            font-weight: lighter;
+            line-height: 24px;
+            word-wrap: break-word;
         }
     }
 }
