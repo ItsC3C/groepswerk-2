@@ -1,6 +1,6 @@
+import Footer from "./Layout/Footer";
+
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
-export default App
+  return <Footer />;
+};
+export default App;
