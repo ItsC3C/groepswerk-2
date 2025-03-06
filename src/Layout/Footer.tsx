@@ -1,4 +1,4 @@
-import style from "../css/footer.module.css";
+import style from "../css/Layout-css/Footer.module.css";
 import ExclusiveSection from "./footer-sections/ExclusiveSection.tsx";
 import SupportSection from "./footer-sections/SupportSection.tsx";
 import AccountSection from "./footer-sections/AccountSection.tsx";

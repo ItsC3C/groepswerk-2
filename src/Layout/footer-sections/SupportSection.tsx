@@ -1,4 +1,4 @@
-import style from "../../css/footer.module.css";
+import style from "../../css/Layout-css/footer.module.css";
 
 const SupportSection = () => {
   return (
