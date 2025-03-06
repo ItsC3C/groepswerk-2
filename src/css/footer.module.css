@@ -2,13 +2,14 @@ footer {
     background-color: black;
     color: #FAFAFA;
     font-family: 'Poppins', sans-serif;
+    padding: 8rem 13rem;
 
     .footer {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         gap: 3rem;
-        padding: 8rem 13rem;
+
 
         .ExclusiveSection,
         .SupportSection,
