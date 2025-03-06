@@ -1,12 +1,11 @@
-import Footer from "./Layout/Footer";
-import Header from "./Layout/Header";
+import Layout from "./Layout/Layout";
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Footer />
-    </div>
+    <Layout>
+      <h1>Welcome to the App</h1>
+    </Layout>
   );
 };
+
 export default App;
