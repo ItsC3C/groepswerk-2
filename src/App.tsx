@@ -1,6 +1,10 @@
+import Header from "./Layout/Header";
+
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
-export default App
+    <div>
+      <Header />
+    </div>
+  );
+};
+export default App;
