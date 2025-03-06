@@ -1,9 +1,10 @@
 import Layout from "./Layout/Layout";
+import TodayComponent from "./components/today.component";
 
 const App = () => {
   return (
     <Layout>
-      <h1>Welcome to the App</h1>
+      <TodayComponent />
     </Layout>
   );
 };

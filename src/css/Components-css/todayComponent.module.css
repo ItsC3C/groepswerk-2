@@ -1,0 +1,95 @@
+/* todayComponent.module.css */
+
+.todayComponent {
+    width: 1170px;
+    height: 103px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 470px;
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 87px;
+
+        .titleContainer {
+            height: 103px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 24px;
+
+            .iconContainer {
+                display: inline-flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 16px;
+
+                .rectangleWrapper {
+                    width: 20px;
+                    height: 40px;
+                    display: inline-flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    .rectangle {
+                        width: 20px;
+                        height: 40px;
+                        background: #DB4444;
+                        border-radius: 4px;
+                    }
+                }
+
+                .todayLabel {
+                    color: #DB4444;
+                    font-size: 16px;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 600;
+                    line-height: 20px;
+                    word-wrap: break-word;
+                }
+            }
+
+            .flashSalesLabel {
+                color: black;
+                font-size: 2rem;
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                line-height: 48px;
+                letter-spacing: 1.44px;
+                word-wrap: break-word;
+            }
+        }
+
+        .countdownWrapper {
+            text-align: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            .timeUnit {
+                .timeLabel {
+                    font-size: 0.6rem;
+                    padding-bottom: 0.5rem;
+                }
+
+                .timeValue {
+                    font-size: 2rem;
+                    font-weight: 800;
+                }
+            }
+
+            .seperator {
+                color: salmon;
+                font-size: 2rem;
+            }
+        }
+
+        .navigationWrapper {}
+    }
+}
