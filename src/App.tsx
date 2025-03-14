@@ -1,5 +1,6 @@
 import Layout from "./Layout/Layout";
 import { Categories } from "./components/categoriesComponent";
+import { NewArrival } from "./components/newArrivalComponent";
 import { OurProducts } from "./components/ourProductsComponent";
 import { Spotlight } from "./components/spotlightComponent";
 import { FlashSales } from "./components/today.component";
@@ -13,6 +14,7 @@ const App = () => {
       <Categories />
       <Spotlight />
       <OurProducts />
+      <NewArrival />
     </Layout>
   );
 };

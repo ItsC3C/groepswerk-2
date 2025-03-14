@@ -1,0 +1,286 @@
+.newArrival {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    .header {
+        margin-bottom: 3.75rem;
+
+        .titleWrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+
+            .bar {
+                width: 1.25rem;
+                height: 2.5rem;
+                background: #db4444;
+                border-radius: 4px;
+            }
+
+            h3 {
+                color: #db4444;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            line-height: 3rem;
+            letter-spacing: 1.44px;
+        }
+    }
+
+    .productGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 8.75rem;
+
+        @media (min-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .primaryCard {
+            position: relative;
+            background: black;
+            border-radius: 4px;
+            overflow: hidden;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .imageContainer {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+
+                img {
+                    width: 100%;
+                    scale: 110%;
+                    max-width: 511px;
+                    height: auto;
+                    object-fit: contain;
+                    position: absolute;
+                    bottom: 0;
+                    z-index: 1;
+                }
+            }
+
+            .productInfo {
+                position: relative;
+                z-index: 2;
+
+                h3 {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: white;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    font-size: 0.875rem;
+                    line-height: 1.3rem;
+                    color: rgba(255, 255, 255, 0.6);
+                    margin-bottom: 1rem;
+                }
+
+                a {
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: white;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+                }
+            }
+        }
+
+        .secondaryGrid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .secondaryCard {
+                position: relative;
+                background: #0D0D0D;
+                border-radius: 4px;
+                overflow: hidden;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                height: 350px;
+
+                .textContent {
+                    position: absolute;
+                    bottom: 40px;
+                    left: 40px;
+                    color: white;
+                    max-width: 255px;
+                    z-index: 2;
+
+                    h3 {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                    }
+
+                    p {
+                        font-size: 0.875rem;
+                        line-height: 1.3rem;
+                        color: rgba(255, 255, 255, 0.6);
+                        margin-bottom: 1rem;
+                    }
+
+                    a {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        color: white;
+                        transition: color 0.3s ease;
+
+                        &:hover {
+                            color: rgba(255, 255, 255, 0.9);
+                        }
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    height: 100%;
+                    max-height: 100%;
+                    object-fit: cover;
+                    z-index: 1;
+                }
+            }
+
+            .tertiaryGrid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 30px;
+                height: 350px;
+
+                @media (min-width: 640px) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .tertiaryCard {
+                    position: relative;
+                    background: linear-gradient(to bottom, #1A1A1A, #0D0D0D, black);
+                    border-radius: 4px;
+                    overflow: hidden;
+                    padding: 24px;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+                    .imageContainer {
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-bottom: 16px;
+
+                        img {
+                            width: 100%;
+                            max-width: 190px;
+                            height: auto;
+                            object-fit: contain;
+                            position: absolute;
+                            bottom: 5rem;
+                            scale: 120%;
+                            z-index: 1;
+                        }
+                    }
+
+                    .productInfo {
+                        position: relative;
+                        z-index: 2;
+
+                        h3 {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            color: white;
+                            margin-bottom: 0.5rem;
+                        }
+
+                        p {
+                            font-size: 0.875rem;
+                            line-height: 1.3rem;
+                            color: rgba(255, 255, 255, 0.6);
+                            margin-bottom: 0.5rem;
+                        }
+
+                        a {
+                            font-size: 1rem;
+                            font-weight: 500;
+                            color: white;
+                            transition: color 0.3s ease;
+
+                            &:hover {
+                                color: rgba(255, 255, 255, 0.9);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .services {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 8.75rem;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .serviceCard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .iconContainer {
+                width: 80px;
+                height: 80px;
+                background: black;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 24px;
+
+                .icon {
+                    width: 40px;
+                    height: 40px;
+                    color: white;
+                }
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                font-size: 0.875rem;
+                line-height: 1.3rem;
+                color: #666666;
+            }
+        }
+    }
+}
