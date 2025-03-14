@@ -14,7 +14,6 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.footerGrid}>
-          {/* Exclusive Column */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>Exclusive</h3>
             <h4 className={styles.footerSubtitle}>Subscribe</h4>
@@ -33,7 +32,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Support Column */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>Support</h3>
             <address className={styles.footerAddress}>
@@ -43,7 +41,6 @@ export function Footer() {
             <p className={styles.footerText}>+88015-88888-9999</p>
           </div>
 
-          {/* Account Column */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>Account</h3>
             <ul className={styles.footerList}>
@@ -65,7 +62,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Quick Link Column */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>Quick Link</h3>
             <ul className={styles.footerList}>
@@ -84,7 +80,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Download App Column */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>Download App</h3>
             <p className={styles.footerText}>Save $3 with App New User Only</p>
@@ -129,7 +124,7 @@ export function Footer() {
         </div>
 
         <div className={styles.footerBottom}>
-          <p>&copy; Copyright Rimel 2022. All rights reserved.</p>
+          <p>&copy; Copyright Cédric 2022. All rights reserved.</p>
         </div>
       </div>
     </footer>
