@@ -1,10 +1,10 @@
 import Layout from "./Layout/Layout";
-import TodayComponent from "./components/today.component";
+import { FlashSales } from "./components/today.component";
 
 const App = () => {
   return (
     <Layout>
-      <TodayComponent />
+      <FlashSales />
     </Layout>
   );
 };

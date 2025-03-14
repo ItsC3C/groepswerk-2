@@ -1,282 +1,163 @@
-footer {
+.footer {
     background-color: black;
-    color: #FAFAFA;
-    font-family: 'Poppins', sans-serif;
-    padding: 8rem 13rem;
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 1.5rem;
 
-    .footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 3rem;
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
 
+        .footerGrid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 4rem;
 
-        .ExclusiveSection,
-        .SupportSection,
-        .AccountSection,
-        .QuickLinkSection,
-        .DownloadAppSection {
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            display: inline-flex;
+            @media (min-width: 640px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (min-width: 1024px) {
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
 
-        .ExclusiveSection {
-            .ExclusiveHolder {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 1.5rem;
-                display: inline-flex;
+        .footerColumn {
+            display: flex;
+            flex-direction: column;
 
-                .Holder {
-                    .Logo {
-                        .Exclusive {
-                            font-size: 1.5rem;
-                            font-weight: 800;
-                            word-wrap: break-word;
-                            padding-bottom: 1.875rem;
+            h3 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1.5rem;
+            }
+
+            h4 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            address {
+                font-style: normal;
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                li {
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+
+                        &:hover {
+                            color: rgba(255, 255, 255, 0.7);
                         }
                     }
-
-                    .Subscribe {
-                        font-size: 1.25rem;
-                        line-height: 1.75rem;
-                        word-wrap: break-word;
-                    }
                 }
+            }
+        }
 
-                .discount {
-                    font-weight: lighter;
-                    font-size: 0.9375rem;
-                    line-height: 1.5rem;
-                    word-wrap: break-word;
-                    padding-bottom: 0.9375rem;
+        .subscribe {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+
+            input {
+                flex-grow: 1;
+                background: transparent;
+                border: 1px solid white;
+                color: white;
+                padding: 0.5rem;
+                outline: none;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.6);
                 }
             }
 
-            .SendMail {
+            button {
+                border: 1px solid white;
+                padding: 0.5rem;
                 display: flex;
                 align-items: center;
-                padding: 0.2rem 0.5rem;
+                justify-content: center;
+                cursor: pointer;
+                transition: background 0.3s ease;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    stroke: white;
+                }
+            }
+        }
+
+        .appDownload {
+            height: 120px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1rem;
+
+            .qrCode {
+                grid-column: 1;
+                grid-row: span 2;
+                background: black;
+                padding: 0.5rem;
                 border-radius: 4px;
-                border: 1.5px solid #FAFAFA;
-
-                .EnterYourEmail {
-                    color: white;
-                    border: none;
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 24px;
-                    word-wrap: break-word;
-                    background: transparent;
-                    flex-grow: 1;
-
-                    &::placeholder {
-                        opacity: 0.4;
-                    }
-
-                    &:focus {
-                        border: none;
-                    }
-                }
-
-                .IconSend {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                }
-            }
-        }
-
-        .SupportSection {
-            .Support {
-                font-size: 1.5rem;
-                font-weight: 800;
-                word-wrap: break-word;
-                padding-bottom: 1.875rem;
+                display: inline-block;
             }
 
-            .Holder {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 1rem;
-                display: inline-flex;
-            }
-
-            .Adress {
-                width: 175px;
-            }
-
-            .Adress,
-            .Mail,
-            .Phone {
-                font-size: 1rem;
-                font-weight: lighter;
-                line-height: 1.5rem;
-                word-wrap: break-word;
-            }
-        }
-
-        .AccountSection {
-            .Account {
-                font-size: 1.5rem;
-                font-weight: 800;
-                word-wrap: break-word;
-                padding-bottom: 1.875rem;
-            }
-
-            .Holder {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 1rem;
-                display: inline-flex;
-            }
-
-            .MyAccount,
-            .LoginRegister,
-            .Cart,
-            .Wishlist,
-            .Shop {
-                font-size: 1rem;
-                font-weight: lighter;
-                line-height: 1.5rem;
-                word-wrap: break-word;
-            }
-        }
-
-        .QuickLinkSection {
-            .QuickLinks {
-                font-size: 1.5rem;
-                font-weight: 800;
-                word-wrap: break-word;
-                padding-bottom: 1.875rem;
-            }
-
-            .Holder {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 1rem;
-                display: inline-flex;
-            }
-
-            .PrivacyPolicy,
-            .TermsOfUse,
-            .FAQ,
-            .Contact {
-                font-size: 1rem;
-                font-weight: lighter;
-                line-height: 1.5rem;
-                word-wrap: break-word;
-            }
-        }
-
-        .DownloadAppSection {
-            .Holder {
-                .DownloadApp {
-                    font-size: 1.5rem;
-                    font-weight: 800;
-                    word-wrap: break-word;
-                    padding-bottom: 1.875rem;
-                }
-
-                .DetailHolder {
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    gap: 0.5rem;
-                    display: inline-flex;
-
-                    .Coupon {
-                        opacity: 0.7;
-                        font-size: 0.75rem;
-                        font-weight: 500;
-                        line-height: 1.125rem;
-                        word-wrap: break-word;
-                    }
-                }
-
-                .DownloadAppHolder {
-                    justify-content: flex-start;
-                    align-items: center;
-                    gap: 0.5rem;
-                    display: inline-flex;
-
-                    .QrCode {
-                        width: 5rem;
-                        height: 5rem;
-                        border: 0.0625rem solid #FAFAFA;
-                        border-radius: 0.3125rem;
-
-                        .Qrcode1 {
-                            width: 4.75rem;
-                            height: 4.75rem;
-                        }
-                    }
-
-                    .DownloadAppStoreHolder {
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        align-items: flex-start;
-                        gap: 0.25rem;
-                        display: inline-flex;
-
-                        .GooglePlay {
-                            width: 6.875rem;
-                            height: 2.5rem;
-                            background: #030406;
-                            position: relative;
-
-                            .GooglePlayLogo {
-                                width: 6.5rem;
-                                height: 1.875rem;
-                                position: absolute;
-                                left: 0.1875rem;
-                                top: 0.3125rem;
-                                border: 0.0625rem solid #FAFAFA;
-                                border-radius: 0.3125rem;
-                            }
-                        }
-
-                        .Appstore {
-                            width: 6.875rem;
-                            height: 2.5rem;
-                            background: black;
-                            justify-content: center;
-                            align-items: center;
-                            display: inline-flex;
-
-                            .AppStoreLogo {
-                                width: 6.5rem;
-                                height: 2.125rem;
-                                left: 0.1875rem;
-                                top: 0.3125rem;
-                                border: 0.0625rem solid #FAFAFA;
-                                border-radius: 0.3125rem;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .SocialsHolder {
-                padding-top: 1.5rem;
+            .storeLinks {
+                padding: 0.5rem;
                 display: flex;
-                gap: 1.5rem;
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
-    }
 
-    .copyright {
-        opacity: 0.4;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-        text-align: center;
-        padding-bottom: 25px;
-        word-wrap: break-word;
+        .socialLinks {
+            display: flex;
+            gap: 1.5rem;
+
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        .footerBottom {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
     }
 }

@@ -1,95 +1,157 @@
-/* todayComponent.module.css */
-
-.todayComponent {
-    width: 1170px;
-    height: 103px;
-    display: inline-flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap: 470px;
+.flashSales {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 70px 1rem;
 
     .header {
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-end;
-        gap: 87px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 3rem;
 
-        .titleContainer {
-            height: 103px;
-            display: inline-flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            gap: 24px;
-
-            .iconContainer {
-                display: inline-flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 16px;
-
-                .rectangleWrapper {
-                    width: 20px;
-                    height: 40px;
-                    display: inline-flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-
-                    .rectangle {
-                        width: 20px;
-                        height: 40px;
-                        background: #DB4444;
-                        border-radius: 4px;
-                    }
-                }
-
-                .todayLabel {
-                    color: #DB4444;
-                    font-size: 16px;
-                    font-family: 'Poppins', sans-serif;
-                    font-weight: 600;
-                    line-height: 20px;
-                    word-wrap: break-word;
-                }
-            }
-
-            .flashSalesLabel {
-                color: black;
-                font-size: 2rem;
-                font-family: 'Inter', sans-serif;
-                font-weight: 600;
-                line-height: 48px;
-                letter-spacing: 1.44px;
-                word-wrap: break-word;
-            }
-        }
-
-        .countdownWrapper {
-            text-align: left;
-            display: flex;
-            justify-content: center;
+        @media (min-width: 768px) {
+            flex-direction: row;
             align-items: center;
-            gap: 1rem;
+        }
 
-            .timeUnit {
-                .timeLabel {
-                    font-size: 0.6rem;
-                    padding-bottom: 0.5rem;
+        .title {
+            display: flex;
+            flex-direction: column;
+
+            .titleWrapper {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 0.75rem;
+
+                .bar {
+                    width: 1.25rem;
+                    height: 2.5rem;
+                    background: #db4444;
+                    border-radius: 0.25rem;
                 }
 
-                .timeValue {
-                    font-size: 2rem;
-                    font-weight: 800;
+                h3 {
+                    color: #db4444;
+                    font-size: 1rem;
+                    font-weight: 600;
                 }
             }
 
-            .seperator {
-                color: salmon;
-                font-size: 2rem;
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 600;
             }
         }
 
-        .navigationWrapper {}
+        .countdown {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+
+            .time {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+
+                .label {
+                    font-size: 0.75rem;
+                    color: black;
+                    margin-top: 0.25rem;
+                }
+            }
+
+            .separator {
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        .navigation {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+
+            @media (min-width: 1024px) {
+                margin-top: 0;
+            }
+
+            .navButton {
+                width: 46px;
+                height: 46px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    background: black;
+                    color: white;
+                    border-color: black;
+                }
+
+                .icon {
+                    width: 24px;
+                    height: 24px;
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover .icon {
+                    transform: translateX(-4px);
+                }
+
+                &.next:hover .icon {
+                    transform: translateX(4px);
+                }
+            }
+        }
+    }
+
+    .productGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .viewAll {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+
+        .viewButton {
+            height: 56px;
+            padding: 0 3rem;
+            background: #db4444;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                background: rgba(219, 68, 68, 0.9);
+            }
+        }
     }
 }

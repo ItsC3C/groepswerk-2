@@ -1,77 +1,52 @@
-import style from "../css/Layout-css/Header.module.css";
+import { Search, Heart, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
+import styles from "../css/Layout-css/Header.module.css";
 
-const Header = () => {
+export function Header() {
   return (
-    <header className={style.header}>
-      <div className={style.TopHeader}>
-        <div className={style.MainHolder}>
-          <div className={style.TextHolder}>
-            <p className={style.Sale}>
-              Summer Sale For All Swim Suits And Free Express Delivery - OFF
-              50%!
-            </p>
-            <a href="#" className={style.ShopLink}>
-              Shop Now
-            </a>
-          </div>
-        </div>
-        <div className={style.LanguageHolder}>
-          <span className={style.LanguageDropdown}>English</span>
-          <div className={style.LanguageDropdownIcon}>
-            {/* INSERT ICON HERE */}
-          </div>
-        </div>
-      </div>
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.headerContent}>
+          <Link to="/" className={styles.logo}>
+            Exclusive
+          </Link>
 
-      <div className={style.mainHeader}>
-        <div className={style.headerContent}>
-          <div className={style.frameLogo}>
-            <div className={style.logo}>
-              <div className={style.exclusive}>Exclusive</div>
-            </div>
-            <div className={style.frameMenu}>
-              <div className={style.headerItem}>
-                <div className={style.home}>Home</div>
-              </div>
-              <div className={style.headerItem}>
-                <div className={style.contact}>Contact</div>
-              </div>
-              <div className={style.headerItem}>
-                <div className={style.about}>About</div>
-              </div>
-              <div className={style.headerItem}>
-                <div className={style.signUp}>Sign Up</div>
-              </div>
-            </div>
-          </div>
+          <nav className={styles.nav}>
+            <Link to="/" className={styles.navLink}>
+              Home
+            </Link>
+            <Link to="/contact" className={styles.navLink}>
+              Contact
+            </Link>
+            <Link to="/about" className={styles.navLink}>
+              About
+            </Link>
+          </nav>
 
-          <div className={style.frameIcons}>
-            <div className={style.searchComponent}>
-              <div className={style.searchFrame}>
-                <div className={style.searchText}>
-                  What are you looking for?
-                </div>
-                <div className={style.searchIcon}>
-                  <div className={style.vector}>{/*SEARCHGLASS ICON*/}</div>
-                </div>
-              </div>
+          <div className={styles.actions}>
+            <div className={styles.searchWrapper}>
+              <input
+                type="search"
+                placeholder="What are you looking for?"
+                className={styles.searchInput}
+              />
+              <Search className={styles.searchIcon} />
             </div>
 
-            <div className={style.iconSet}>
-              <div className={style.wishlist}>
-                <div className={style.vector}>{/*LIKED ICON*/}</div>
-              </div>
-              <div className={style.cartWithBuy}>
-                <div className={style.cart}>
-                  <div className={style.vector}>{/*CART ICON*/}</div>
-                </div>
-              </div>
-            </div>
+            <button className={styles.iconButton}>
+              <Link to="/wishlist">
+                <Heart className={styles.icon} />
+              </Link>
+            </button>
+
+            <button className={styles.iconButton}>
+              <Link to="/cart">
+                <ShoppingCart className={styles.icon} />
+              </Link>
+            </button>
           </div>
         </div>
       </div>
     </header>
   );
-};
-
-export default Header;
+}
