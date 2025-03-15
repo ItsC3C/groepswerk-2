@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 24px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 769px) {
     flex-direction: row;
     gap: 45px;
     padding-top: 40px;
@@ -23,15 +23,20 @@
 .sidebar {
   width: 100%;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 769px) {
     width: 217px;
     flex-shrink: 0;
   }
 
   .nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Standaard: verticaal */
     gap: 16px;
+
+    @media (max-width: 769px) {
+      flex-direction: row; /* Bij schermbreedtes ≤ 450px: horizontaal */
+      flex-wrap: wrap; /* Zorgt dat de links netjes op een nieuwe regel gaan indien nodig */
+    }
 
     .navLink {
       display: flex;
