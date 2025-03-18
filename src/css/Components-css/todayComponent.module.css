@@ -107,12 +107,16 @@
           color: white;
           border-color: black;
         }
-
-        .icon {
+        img {
+          width: 24px;
+          height: 24px;
+          display: block;
+        }
+        /* .icon {
           width: 24px;
           height: 24px;
           transition: transform 0.3s ease;
-        }
+        } */
 
         &:hover .icon {
           transform: translateX(-4px);

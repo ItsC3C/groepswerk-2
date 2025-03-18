@@ -4,6 +4,8 @@ import img2 from "../assets/FSImage2.png";
 import img3 from "../assets/FSImage3.png";
 import img4 from "../assets/FSImage4.png";
 import styles from "../css/Components-css/todayComponent.module.css";
+import leftArrow from "../assets/arrow_left.png";
+import rightArrow from "../assets/arrow_right.png";
 
 const products = [
   {
@@ -71,13 +73,10 @@ export function FlashSales() {
         </div>
         <div className={styles.navigation}>
           <button className={styles.navButton} aria-label="Previous category">
-            <svg className={`${styles.icon} prev`} />
+            <img src={leftArrow} alt="Previous" className={styles.icon} />
           </button>
-          <button
-            className={`${styles.navButton} next`}
-            aria-label="Next category"
-          >
-            <svg className={`${styles.icon}`} />
+          <button className={styles.navButton} aria-label="Next category">
+            <img src={rightArrow} alt="Next" className={styles.icon} />
           </button>
         </div>
       </div>
