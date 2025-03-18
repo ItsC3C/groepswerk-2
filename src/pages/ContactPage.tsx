@@ -1,4 +1,4 @@
-import styles from "../csS/Page-css/ContactPage.module.css";
+import styles from "../css/Page.module.css";
 import BreadcrumbComponent from "../components/BreadcrumbComponent";
 import EmailComponent from "../components/ContactComponents/EmailComponent";
 import ContactUsComponent from "../components/ContactComponents/ContactUsComponent";

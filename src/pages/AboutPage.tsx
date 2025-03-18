@@ -7,7 +7,7 @@ import OurStoryComponent from "../components/AboutComponents/OurStoryComponent";
 import StatsComponent from "../components/AboutComponents/StatsComponent";
 import OurTeamComponent from "../components/AboutComponents/OurTeamComponent";
 import OurServicesComponent from "../components/AboutComponents/OurServicesComponent";
-import styles from "../css/Page-css/AboutPage.module.css";
+import styles from "../css/Page.module.css";
 
 interface Stat {
   number: string;
