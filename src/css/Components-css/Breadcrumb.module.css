@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 80px;
+    font-size: 0.875rem;
+
+    .Breadcrumblink {
+        color: rgba(0, 0, 0, 0.6);
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.8);
+        }
+    }
+
+    .seperator {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .current {
+        color: rgba(0, 0, 0, 1);
+    }
+}

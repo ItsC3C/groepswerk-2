@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import style from "../css/Layout-css/Layout.module.css";
 import { TopBanner } from "./topbanner";
 
 interface LayoutProps {
@@ -13,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <TopBanner />
       <Header />
-      <main className={style.main}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );

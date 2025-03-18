@@ -1,22 +1,36 @@
+import { Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage";
 import Layout from "./Layout/Layout";
-import { Categories } from "./components/categoriesComponent";
-import { NewArrival } from "./components/newArrivalComponent";
-import { OurProducts } from "./components/ourProductsComponent";
-import { Spotlight } from "./components/spotlightComponent";
-import { FlashSales } from "./components/today.component";
-import { SidebarAndCarousel } from "./components/SidebarAndCarousel";
 import "./css/App.css";
+import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage";
+import FaqPage from "./pages/FaqPage";
+import TermsOfUsePage from "./pages/TermsOfUsePage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import ShopPage from "./pages/ShopPage";
+import WishlistPage from "./pages/WishlistPage";
+import CartPage from "./pages/CartPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import MyAccountPage from "./pages/MyAccountPage";
 
 const App = () => {
   return (
     <Layout>
-      <SidebarAndCarousel />
-      <FlashSales />
-      <hr />
-      <Categories />
-      <Spotlight />
-      <OurProducts />
-      <NewArrival />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/terms" element={<TermsOfUsePage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/account" element={<MyAccountPage />} />
+      </Routes>
     </Layout>
   );
 };
