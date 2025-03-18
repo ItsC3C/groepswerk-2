@@ -1,4 +1,4 @@
-import styles from "../css/Components-css/WriteToUs.module.css";
+import styles from "../../css/Components-css/ContactCSS/WriteToUs.module.css";
 
 const WriteToUsComponent = () => {
   return (

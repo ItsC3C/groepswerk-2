@@ -1,5 +1,5 @@
-import styles from "../css/Components-css/spotlightComponent.module.css";
-import img from "../assets/MusicBannerImage.png";
+import styles from "../../css/Components-css/HomeCSS/spotlightComponent.module.css";
+import img from "../../assets/MusicBannerImage.png";
 
 export function Spotlight() {
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (

@@ -1,9 +1,9 @@
-import { Categories } from "../components/categoriesComponent";
-import { NewArrival } from "../components/newArrivalComponent";
-import { OurProducts } from "../components/ourProductsComponent";
-import { Spotlight } from "../components/spotlightComponent";
-import { FlashSales } from "../components/today.component";
-import { SidebarAndCarousel } from "../components/SidebarAndCarousel";
+import { Categories } from "../components/HomeComponents/categoriesComponent";
+import { NewArrival } from "../components/HomeComponents/newArrivalComponent";
+import { OurProducts } from "../components/HomeComponents/ourProductsComponent";
+import { Spotlight } from "../components/HomeComponents/spotlightComponent";
+import { FlashSales } from "../components/HomeComponents/today.component";
+import { SidebarAndCarousel } from "../components/HomeComponents/SidebarAndCarousel";
 
 const MainPage = () => {
   return (

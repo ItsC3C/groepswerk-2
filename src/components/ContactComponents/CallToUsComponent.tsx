@@ -1,4 +1,4 @@
-import styles from "../css/Components-css/CallToUs.module.css";
+import styles from "../../css/Components-css/ContactCSS/CallToUs.module.css";
 
 const CallToUsComponent = () => {
   return (

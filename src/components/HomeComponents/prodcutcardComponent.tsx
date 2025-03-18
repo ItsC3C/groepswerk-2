@@ -1,6 +1,6 @@
 import { Heart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
-import styles from "../css/Components-css/productcardComponent.module.css";
+import styles from "../../css/Components-css/HomeCSS/productcardComponent.module.css";
 
 interface ProductCardProps {
   name: string;

@@ -1,4 +1,4 @@
-import styles from "../css/Components-css/categoriesComponent.module.css";
+import styles from "../../css/Components-css/HomeCSS/categoriesComponent.module.css";
 import {
   FaMobileAlt,
   FaDesktop,

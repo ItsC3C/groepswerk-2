@@ -1,6 +1,6 @@
-import CallToUsComponent from "../components/CallToUsComponent";
-import WriteToUsComponent from "../components/WriteToUsComponent";
-import styles from "../css/Components-css/ContactUs.module.css";
+import CallToUsComponent from "./CallToUsComponent";
+import WriteToUsComponent from "./WriteToUsComponent";
+import styles from "../../css/Components-css/ContactCSS/ContactUs.module.css";
 const ContactUsComponent = () => {
   return (
     <div className={styles.leftColumn}>

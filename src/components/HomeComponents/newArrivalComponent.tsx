@@ -1,9 +1,9 @@
 import { Truck, HeadphonesIcon, Shield } from "lucide-react";
-import NA1 from "../assets/FeaturedImage1.png";
-import NA2 from "../assets/FeaturedImage2.png";
-import NA3 from "../assets/FeaturedImage3.png";
-import NA4 from "../assets/FeaturedImage4.png";
-import styles from "../css/Components-css/newArrivalComponent.module.css";
+import NA1 from "../../assets/FeaturedImage1.png";
+import NA2 from "../../assets/FeaturedImage2.png";
+import NA3 from "../../assets/FeaturedImage3.png";
+import NA4 from "../../assets/FeaturedImage4.png";
+import styles from "../../css/Components-css/HomeCSS/newArrivalComponent.module.css";
 
 export function NewArrival() {
   const services = [

@@ -1,7 +1,7 @@
-import styles from "../css/ContactPage.module.css";
+import styles from "../csS/Page-css/ContactPage.module.css";
 import BreadcrumbComponent from "../components/BreadcrumbComponent";
-import EmailComponent from "../components/EmailComponent";
-import ContactUsComponent from "../components/ContactUsComponent";
+import EmailComponent from "../components/ContactComponents/EmailComponent";
+import ContactUsComponent from "../components/ContactComponents/ContactUsComponent";
 
 export default function ContactPage() {
   return (

@@ -1,13 +1,13 @@
 import { ProductCard } from "./prodcutcardComponent";
-import EOP1 from "../assets/EOPImage1.png";
-import EOP2 from "../assets/EOPImage2.png";
-import EOP3 from "../assets/EOPImage3.png";
-import EOP4 from "../assets/EOPImage4.png";
-import EOP5 from "../assets/EOPImage5.png";
-import EOP6 from "../assets/EOPImage6.png";
-import EOP7 from "../assets/EOPImage7.png";
-import EOP8 from "../assets/EOPImage8.png";
-import styles from "../css/Components-css/ourProductsComponent.module.css";
+import EOP1 from "../../assets/EOPImage1.png";
+import EOP2 from "../../assets/EOPImage2.png";
+import EOP3 from "../../assets/EOPImage3.png";
+import EOP4 from "../../assets/EOPImage4.png";
+import EOP5 from "../../assets/EOPImage5.png";
+import EOP6 from "../../assets/EOPImage6.png";
+import EOP7 from "../../assets/EOPImage7.png";
+import EOP8 from "../../assets/EOPImage8.png";
+import styles from "../../css/Components-css/HomeCSS/ourProductsComponent.module.css";
 
 const products = [
   {

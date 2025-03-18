@@ -1,9 +1,9 @@
 import { ProductCard } from "./prodcutcardComponent";
-import img1 from "../assets/FSImage1.png";
-import img2 from "../assets/FSImage2.png";
-import img3 from "../assets/FSImage3.png";
-import img4 from "../assets/FSImage4.png";
-import styles from "../css/Components-css/todayComponent.module.css";
+import img1 from "../../assets/FSImage1.png";
+import img2 from "../../assets/FSImage2.png";
+import img3 from "../../assets/FSImage3.png";
+import img4 from "../../assets/FSImage4.png";
+import styles from "../../css/Components-css/HomeCSS/todayComponent.module.css";
 
 const products = [
   {

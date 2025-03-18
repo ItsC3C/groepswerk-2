@@ -1,6 +1,6 @@
-import Apple from "../assets/apple.png";
-import HeroImage from "../assets/HeroImage.png";
-import styles from "../css/Components-css/SidebarAndCarousel.module.css";
+import Apple from "../../assets/apple.png";
+import HeroImage from "../../assets/HeroImage.png";
+import styles from "../../css/Components-css/HomeCSS/SidebarAndCarousel.module.css";
 
 export function SidebarAndCarousel() {
   const categories = [

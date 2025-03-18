@@ -1,4 +1,4 @@
-import styles from "../css/Components-css/EmailComponent.module.css";
+import styles from "../../css/Components-css/ContactCSS/EmailComponent.module.css";
 
 const EmailComponent = () => {
   return (

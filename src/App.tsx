@@ -13,6 +13,7 @@ import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MyAccountPage from "./pages/MyAccountPage";
+import PageNoutFound from "./pages/PageNoutFound";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/account" element={<MyAccountPage />} />
+        <Route path="/page-not-found" element={<PageNoutFound />} />
       </Routes>
     </Layout>
   );
