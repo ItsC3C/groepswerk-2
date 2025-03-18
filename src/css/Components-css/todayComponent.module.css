@@ -1,157 +1,163 @@
 .flashSales {
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 70px 1rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 70px 1rem;
 
-    .header {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 3rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+
+      .titleWrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+
+        .bar {
+          width: 1.25rem;
+          height: 2.5rem;
+          background: #db4444;
+          border-radius: 0.25rem;
+        }
+
+        h3 {
+          color: #db4444;
+          font-size: 1rem;
+          font-weight: 600;
+        }
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+    }
+
+    .countdown {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+      }
+
+      .time {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: start;
-        margin-bottom: 3rem;
+        align-items: center;
 
-        @media (min-width: 768px) {
-            flex-direction: row;
-            align-items: center;
+        span {
+          font-size: 2rem;
+          font-weight: 600;
         }
 
-        .title {
-            display: flex;
-            flex-direction: column;
-
-            .titleWrapper {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                margin-bottom: 0.75rem;
-
-                .bar {
-                    width: 1.25rem;
-                    height: 2.5rem;
-                    background: #db4444;
-                    border-radius: 0.25rem;
-                }
-
-                h3 {
-                    color: #db4444;
-                    font-size: 1rem;
-                    font-weight: 600;
-                }
-            }
-
-            h2 {
-                font-size: 2.5rem;
-                font-weight: 600;
-            }
+        .label {
+          font-size: 0.75rem;
+          color: black;
+          margin-top: 0.25rem;
         }
+      }
 
-        .countdown {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-
-            .time {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                span {
-                    font-size: 2rem;
-                    font-weight: 600;
-                }
-
-                .label {
-                    font-size: 0.75rem;
-                    color: black;
-                    margin-top: 0.25rem;
-                }
-            }
-
-            .separator {
-                font-size: 2rem;
-                font-weight: 600;
-                margin-bottom: 1.25rem;
-            }
-        }
-
-        .navigation {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-
-            @media (min-width: 1024px) {
-                margin-top: 0;
-            }
-
-            .navButton {
-                width: 46px;
-                height: 46px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid rgba(0, 0, 0, 0.05);
-                border-radius: 50%;
-                transition: all 0.3s ease;
-                cursor: pointer;
-
-                &:hover {
-                    background: black;
-                    color: white;
-                    border-color: black;
-                }
-
-                .icon {
-                    width: 24px;
-                    height: 24px;
-                    transition: transform 0.3s ease;
-                }
-
-                &:hover .icon {
-                    transform: translateX(-4px);
-                }
-
-                &.next:hover .icon {
-                    transform: translateX(4px);
-                }
-            }
-        }
+      .separator {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0 0.5rem;
+        align-self: center; /* Houdt de ':' op de juiste hoogte */
+      }
     }
 
-    .productGrid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .navigation {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
 
-        @media (min-width: 640px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+      @media (min-width: 1024px) {
+        margin-top: 0;
+      }
 
-        @media (min-width: 1024px) {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-
-    .viewAll {
+      .navButton {
+        width: 46px;
+        height: 46px;
         display: flex;
+        align-items: center;
         justify-content: center;
-        margin-top: 60px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        cursor: pointer;
 
-        .viewButton {
-            height: 56px;
-            padding: 0 3rem;
-            background: #db4444;
-            border: none;
-            color: white;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 4px;
-            transition: background 0.3s ease;
-            cursor: pointer;
-
-            &:hover {
-                background: rgba(219, 68, 68, 0.9);
-            }
+        &:hover {
+          background: black;
+          color: white;
+          border-color: black;
         }
+
+        .icon {
+          width: 24px;
+          height: 24px;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover .icon {
+          transform: translateX(-4px);
+        }
+
+        &.next:hover .icon {
+          transform: translateX(4px);
+        }
+      }
     }
+  }
+
+  .productGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .viewAll {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+
+    .viewButton {
+      height: 56px;
+      padding: 0 3rem;
+      background: #db4444;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(219, 68, 68, 0.9);
+      }
+    }
+  }
 }

@@ -58,16 +58,17 @@ export function FlashSales() {
 
         <div className={styles.countdown}>
           {["03", "23", "19", "56"].map((time, index) => (
-            <div key={index} className={styles.time}>
-              <span>{time}</span>
-              <span className={styles.label}>
-                {["Days", "Hours", "Minutes", "Seconds"][index]}
-              </span>
+            <div key={index} className={styles.wrapper}>
+              <div className={styles.time}>
+                <span>{time}</span>
+                <span className={styles.label}>
+                  {["Days", "Hours", "Minutes", "Seconds"][index]}
+                </span>
+              </div>
               {index < 3 && <span className={styles.separator}>:</span>}
             </div>
           ))}
         </div>
-
         <div className={styles.navigation}>
           <button className={styles.navButton} aria-label="Previous category">
             <svg className={`${styles.icon} prev`} />
