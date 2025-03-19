@@ -1,11 +1,12 @@
+import { useRef } from "react";
+import leftArrow from "../assets/arrow_left.png";
+import rightArrow from "../assets/arrow_right.png";
 import { ProductCard } from "./prodcutcardComponent";
 import img1 from "../assets/FSImage1.png";
 import img2 from "../assets/FSImage2.png";
 import img3 from "../assets/FSImage3.png";
 import img4 from "../assets/FSImage4.png";
 import styles from "../css/Components-css/todayComponent.module.css";
-import leftArrow from "../assets/arrow_left.png";
-import rightArrow from "../assets/arrow_right.png";
 
 const products = [
   {
@@ -47,6 +48,20 @@ const products = [
 ];
 
 export function FlashSales() {
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className={styles.flashSales}>
       <div className={styles.header}>
@@ -58,30 +73,26 @@ export function FlashSales() {
           <h2>Flash Sales</h2>
         </div>
 
-        <div className={styles.countdown}>
-          {["03", "23", "19", "56"].map((time, index) => (
-            <div key={index} className={styles.wrapper}>
-              <div className={styles.time}>
-                <span>{time}</span>
-                <span className={styles.label}>
-                  {["Days", "Hours", "Minutes", "Seconds"][index]}
-                </span>
-              </div>
-              {index < 3 && <span className={styles.separator}>:</span>}
-            </div>
-          ))}
-        </div>
         <div className={styles.navigation}>
-          <button className={styles.navButton} aria-label="Previous category">
+          <button
+            className={styles.navButton}
+            onClick={scrollLeft}
+            aria-label="Previous category"
+          >
             <img src={leftArrow} alt="Previous" className={styles.icon} />
           </button>
-          <button className={styles.navButton} aria-label="Next category">
+          <button
+            className={styles.navButton}
+            onClick={scrollRight}
+            aria-label="Next category"
+          >
             <img src={rightArrow} alt="Next" className={styles.icon} />
           </button>
         </div>
       </div>
 
-      <div className={styles.productGrid}>
+      {/* Slider Container */}
+      <div className={styles.productGrid} ref={sliderRef}>
         {products.map((product) => (
           <ProductCard key={product.name} {...product} />
         ))}
