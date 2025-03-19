@@ -21,6 +21,9 @@ export function Header() {
             <Link to="/about" className={styles.navLink}>
               About
             </Link>
+            <Link to="/register" className={styles.navLink}>
+              Register
+            </Link>
           </nav>
 
           <div className={styles.actions}>

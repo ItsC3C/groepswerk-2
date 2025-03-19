@@ -1,6 +1,6 @@
 import { Heart, Eye } from "lucide-react";
-import { Link } from "react-router-dom";
-import styles from "../css/Components-css/productcardComponent.module.css";
+import styles from "../../css/Components-css/HomeCSS/productcardComponent.module.css";
+import Button from "../../components/ButtonComponent";
 
 interface ProductCardProps {
   name: string;
@@ -29,17 +29,21 @@ export function ProductCard({
         {discount && <div className={styles.discount}>-{discount}%</div>}
 
         <div className={styles.actionButtons}>
-          <button className={styles.actionButton}>
+          <Button variant="confirm" className={styles.actionButton}>
             <Heart className={styles.icon} />
-          </button>
-          <button className={styles.actionButton}>
-            <Link to="/product/1">
-              <Eye className={styles.icon} />
-            </Link>
-          </button>
+          </Button>
+          <Button
+            variant="confirm"
+            to="/product/1"
+            className={styles.actionButton}
+          >
+            <Eye className={styles.icon} />
+          </Button>
         </div>
 
-        <button className={styles.addToCart}>Add To Cart</button>
+        <Button variant="navigation" className={styles.addToCart}>
+          Add To Cart
+        </Button>
       </div>
 
       <div className={styles.productInfo}>

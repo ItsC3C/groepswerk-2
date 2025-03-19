@@ -152,22 +152,5 @@
     display: flex;
     justify-content: center;
     margin-top: 60px;
-
-    .viewButton {
-      height: 56px;
-      padding: 0 3rem;
-      background: #db4444;
-      border: none;
-      color: white;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-      cursor: pointer;
-
-      &:hover {
-        background: rgba(219, 68, 68, 0.9);
-      }
-    }
   }
 }

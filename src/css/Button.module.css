@@ -1,0 +1,49 @@
+.button {
+    height: 56px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &.confirm {
+        background-color: transparent;
+        color: black;
+
+        &:hover {
+            background-color: #DB4444;
+            color: white;
+            border-color: #DB4444;
+
+            a {
+                color: white;
+            }
+        }
+    }
+
+    &.navigation {
+        background-color: #DB4444;
+        color: white;
+        border-color: #DB4444;
+
+        &:hover {
+            background-color: transparent;
+            color: #DB4444;
+            border-color: #DB4444;
+
+            a {
+                color: #DB4444;
+            }
+        }
+    }
+}

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ProductCard } from "./prodcutcardComponent";
-import { Product } from "../types";
-import styles from "../css/Components-css/ourProductsComponent.module.css";
-import leftArrow from "../assets/arrow_left.png";
-import rightArrow from "../assets/arrow_right.png";
+import { ProductCard } from "../HomeComponents/prodcutcardComponent";
+import styles from "../../css/Components-css/HomeCSS/ourProductsComponent.module.css";
+import Button from "../ButtonComponent";
+import { Product } from "../../types";
+import leftArrow from "../../assets/arrow_left.png";
+import rightArrow from "../../assets/arrow_right.png";
 
 export function OurProducts() {
   const [products, setProducts] = useState<Product[]>([]);
-
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products") // voorlopige api
@@ -32,12 +32,20 @@ export function OurProducts() {
         </div>
 
         <div className={styles.navigation}>
-          <button className={styles.navButton} aria-label="Previous category">
+          <Button
+            variant="navigation"
+            className={styles.navButton}
+            aria-label="Previous category"
+          >
             <img src={leftArrow} alt="Previous" className={styles.icon} />
-          </button>
-          <button className={styles.navButton} aria-label="Next category">
+          </Button>
+          <Button
+            variant="navigation"
+            className={styles.navButton}
+            aria-label="Next category"
+          >
             <img src={rightArrow} alt="Next" className={styles.icon} />
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -60,7 +68,7 @@ export function OurProducts() {
       </div>
 
       <div className={styles.viewAll}>
-        <button className={styles.viewButton}>View All Products</button>
+        <Button variant="confirm">View All Products</Button>
       </div>
     </section>
   );

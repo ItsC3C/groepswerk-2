@@ -1,12 +1,13 @@
 import { useRef } from "react";
-import leftArrow from "../assets/arrow_left.png";
-import rightArrow from "../assets/arrow_right.png";
+import leftArrow from "../../assets/arrow_left.png";
+import rightArrow from "../../assets/arrow_right.png";
 import { ProductCard } from "./prodcutcardComponent";
-import img1 from "../assets/FSImage1.png";
-import img2 from "../assets/FSImage2.png";
-import img3 from "../assets/FSImage3.png";
-import img4 from "../assets/FSImage4.png";
-import styles from "../css/Components-css/todayComponent.module.css";
+import img1 from "../../assets/FSImage1.png";
+import img2 from "../../assets/FSImage2.png";
+import img3 from "../../assets/FSImage3.png";
+import img4 from "../../assets/FSImage4.png";
+import styles from "../../css/Components-css/HomeCSS/todayComponent.module.css";
+import Button from "../ButtonComponent";
 
 const products = [
   {
@@ -73,21 +74,37 @@ export function FlashSales() {
           <h2>Flash Sales</h2>
         </div>
 
+        <div className={styles.countdown}>
+          {["03", "23", "19", "56"].map((time, index) => (
+            <div key={index} className={styles.wrapper}>
+              <div className={styles.time}>
+                <span>{time}</span>
+                <span className={styles.label}>
+                  {["Days", "Hours", "Minutes", "Seconds"][index]}
+                </span>
+              </div>
+              {index < 3 && <span className={styles.separator}>:</span>}
+            </div>
+          ))}
+        </div>
+
         <div className={styles.navigation}>
-          <button
+          <Button
+            variant="navigation"
             className={styles.navButton}
-            onClick={scrollLeft}
             aria-label="Previous category"
+            onClick={scrollLeft}
           >
             <img src={leftArrow} alt="Previous" className={styles.icon} />
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="navigation"
             className={styles.navButton}
-            onClick={scrollRight}
             aria-label="Next category"
+            onClick={scrollRight}
           >
             <img src={rightArrow} alt="Next" className={styles.icon} />
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -99,7 +116,7 @@ export function FlashSales() {
       </div>
 
       <div className={styles.viewAll}>
-        <button className={styles.viewButton}>View All Products</button>
+        <Button variant="confirm">View All Products</Button>
       </div>
     </section>
   );

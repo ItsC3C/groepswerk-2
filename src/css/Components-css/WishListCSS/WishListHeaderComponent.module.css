@@ -1,0 +1,15 @@
+.wishlistHeader {
+
+    margin-bottom: 2.5rem;
+
+    .headerMain {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .wishlistTitle {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+    }
+}

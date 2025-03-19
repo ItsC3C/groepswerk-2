@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Facebook,
   Twitter,
@@ -45,19 +46,19 @@ export function Footer() {
             <h3 className={styles.footerTitle}>Account</h3>
             <ul className={styles.footerList}>
               <li className={styles.footerListItem}>
-                <a href="/account">My Account</a>
+                <Link to="/account">My Account</Link>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/login">Login / Register</a>
+                <Link to="/login">Login / Register</Link>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/cart">Cart</a>
+                <Link to="/cart">Cart</Link>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/wishlist">Wishlist</a>
+                <Link to="/wishlist">Wishlist</Link>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/shop">Shop</a>
+                <Link to="/shop">Shop</Link>
               </li>
             </ul>
           </div>
@@ -66,16 +67,16 @@ export function Footer() {
             <h3 className={styles.footerTitle}>Quick Link</h3>
             <ul className={styles.footerList}>
               <li className={styles.footerListItem}>
-                <a href="/privacy-policy">Privacy Policy</a>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/terms">Terms Of Use</a>
+                <Link to="/terms">Terms Of Use</Link>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/faq">FAQ</a>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/contact">Contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -88,35 +89,55 @@ export function Footer() {
                 <img src={QRImage} alt="QR Code" width={96} height={96} />
               </div>
               <div className={styles.storeLinks}>
-                <a href="#">
+                <Link to="#">
                   <img
                     src={GoogleImage}
                     alt="Google Play"
                     width={160}
                     height={40}
                   />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <img
                     src={AppleImage}
                     alt="App Store"
                     width={160}
                     height={40}
                   />
-                </a>
+                </Link>
               </div>
             </div>
             <div className={styles.socialLinks}>
-              <a href="#" className={styles.socialLink}>
+              <a
+                href="https://facebook.com/exclusive"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
                 <Facebook className={styles.socialIcon} />
               </a>
-              <a href="#" className={styles.socialLink}>
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
                 <Twitter className={styles.socialIcon} />
               </a>
-              <a href="#" className={styles.socialLink}>
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
                 <Instagram className={styles.socialIcon} />
               </a>
-              <a href="#" className={styles.socialLink}>
+              <a
+                href="https://linkedin.com/company/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
                 <LinkedIn className={styles.socialIcon} />
               </a>
             </div>

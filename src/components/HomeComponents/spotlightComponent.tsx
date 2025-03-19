@@ -1,5 +1,6 @@
-import styles from "../css/Components-css/spotlightComponent.module.css";
-import img from "../assets/MusicBannerImage.png";
+import styles from "../../css/Components-css/HomeCSS/spotlightComponent.module.css";
+import img from "../../assets/MusicBannerImage.png";
+import Button from "../../components/ButtonComponent";
 
 export function Spotlight() {
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
@@ -25,7 +26,9 @@ export function Spotlight() {
             <TimeUnit value={59} label="Minutes" />
             <TimeUnit value={35} label="Seconds" />
           </div>
-          <button className={styles.buyButton}>Buy Now!</button>
+          <Button variant="confirm" className={styles.buyButton}>
+            Buy Now!
+          </Button>
         </div>
 
         <div className={styles.imageContainer}>
