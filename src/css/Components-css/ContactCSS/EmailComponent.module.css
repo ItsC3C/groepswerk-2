@@ -42,21 +42,4 @@
         display: flex;
         justify-content: flex-end;
     }
-
-    .button {
-        height: 56px;
-        padding: 0 3rem;
-        background-color: #db4444;
-        border: none;
-        color: #ffffff;
-        font-size: 1rem;
-        font-weight: 500;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-
-        &:hover {
-            background-color: #c33b3b;
-        }
-    }
 }

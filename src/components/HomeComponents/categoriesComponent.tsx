@@ -7,6 +7,7 @@ import {
   FaHeadphones,
   FaGamepad,
 } from "react-icons/fa";
+import Button from "../../components/ButtonComponent";
 
 const categories = [
   { name: "Phones", icon: FaMobileAlt },
@@ -30,15 +31,20 @@ export function Categories() {
         </div>
 
         <div className={styles.navigation}>
-          <button className={styles.navButton} aria-label="Previous category">
+          <Button
+            variant="navigation"
+            className={styles.navButton}
+            aria-label="Previous category"
+          >
             <svg className={`${styles.icon} prev`} />
-          </button>
-          <button
-            className={`${styles.navButton} next`}
+          </Button>
+          <Button
+            variant="navigation"
+            className={styles.navButton}
             aria-label="Next category"
           >
-            <svg className={`${styles.icon}`} />
-          </button>
+            <svg className={styles.icon} />
+          </Button>
         </div>
       </div>
 
@@ -46,15 +52,16 @@ export function Categories() {
         {categories.map((category, index) => {
           const Icon = category.icon;
           return (
-            <button
+            <Button
               key={category.name}
+              variant="confirm"
               className={`${styles.categoryButton} ${
                 index === 3 ? styles.active : ""
               }`}
             >
               <Icon className={styles.categoryIcon} />
               <span className={styles.categoryText}>{category.name}</span>
-            </button>
+            </Button>
           );
         })}
       </div>

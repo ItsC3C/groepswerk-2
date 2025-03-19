@@ -135,10 +135,5 @@
             font-size: 1rem;
             font-weight: 400;
         }
-
-        &.active {
-            background: #db4444;
-            color: white;
-        }
     }
 }

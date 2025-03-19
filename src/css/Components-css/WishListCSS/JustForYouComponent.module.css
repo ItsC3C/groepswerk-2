@@ -31,21 +31,6 @@
             font-size: 2rem;
             font-weight: 500;
         }
-
-        .seeAllButton {
-            height: 46px;
-            padding: 0 3rem;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            font-size: 1rem;
-            background-color: transparent;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-
-            &:hover {
-                background-color: #DB4444;
-                color: #fff;
-                border-color: #DB4444;
-            }
-        }
     }
 
     .justForYouGrid {

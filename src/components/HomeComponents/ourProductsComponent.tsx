@@ -8,6 +8,7 @@ import EOP6 from "../../assets/EOPImage6.png";
 import EOP7 from "../../assets/EOPImage7.png";
 import EOP8 from "../../assets/EOPImage8.png";
 import styles from "../../css/Components-css/HomeCSS/ourProductsComponent.module.css";
+import Button from "../../components/ButtonComponent";
 
 const products = [
   {
@@ -90,15 +91,20 @@ export function OurProducts() {
         </div>
 
         <div className={styles.navigation}>
-          <button className={styles.navButton} aria-label="Previous category">
+          <Button
+            variant="navigation"
+            className={styles.navButton}
+            aria-label="Previous category"
+          >
             <svg className={`${styles.icon} prev`} />
-          </button>
-          <button
-            className={`${styles.navButton} next`}
+          </Button>
+          <Button
+            variant="navigation"
+            className={styles.navButton}
             aria-label="Next category"
           >
-            <svg className={`${styles.icon}`} />
-          </button>
+            <svg className={styles.icon} />
+          </Button>
         </div>
       </div>
 
@@ -112,7 +118,7 @@ export function OurProducts() {
       </div>
 
       <div className={styles.viewAll}>
-        <button className={styles.viewButton}>View All Products</button>
+        <Button variant="confirm">View All Products</Button>
       </div>
     </section>
   );

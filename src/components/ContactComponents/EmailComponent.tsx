@@ -1,4 +1,5 @@
 import styles from "../../css/Components-css/ContactCSS/EmailComponent.module.css";
+import Button from "../ButtonComponent";
 
 const EmailComponent = () => {
   return (
@@ -14,9 +15,7 @@ const EmailComponent = () => {
       </div>
       <input placeholder="Your Message" className={styles.message} />
       <div className={styles.buttonContainer}>
-        <button type="submit" className={styles.button}>
-          Send Message
-        </button>
+        <Button variant="confirm">Send Message</Button>
       </div>
     </div>
   );

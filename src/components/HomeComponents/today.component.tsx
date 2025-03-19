@@ -4,6 +4,7 @@ import img2 from "../../assets/FSImage2.png";
 import img3 from "../../assets/FSImage3.png";
 import img4 from "../../assets/FSImage4.png";
 import styles from "../../css/Components-css/HomeCSS/todayComponent.module.css";
+import Button from "../ButtonComponent";
 
 const products = [
   {
@@ -70,15 +71,20 @@ export function FlashSales() {
           ))}
         </div>
         <div className={styles.navigation}>
-          <button className={styles.navButton} aria-label="Previous category">
+          <Button
+            variant="navigation"
+            className={styles.navButton}
+            aria-label="Previous category"
+          >
             <svg className={`${styles.icon} prev`} />
-          </button>
-          <button
-            className={`${styles.navButton} next`}
+          </Button>
+          <Button
+            variant="navigation"
+            className={styles.navButton}
             aria-label="Next category"
           >
-            <svg className={`${styles.icon}`} />
-          </button>
+            <svg className={styles.icon} />
+          </Button>
         </div>
       </div>
 
@@ -89,7 +95,7 @@ export function FlashSales() {
       </div>
 
       <div className={styles.viewAll}>
-        <button className={styles.viewButton}>View All Products</button>
+        <Button variant="confirm">View All Products</Button>
       </div>
     </section>
   );

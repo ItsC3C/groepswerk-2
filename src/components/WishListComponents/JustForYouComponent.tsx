@@ -1,6 +1,7 @@
 import React from "react";
 import { ProductCard } from "../HomeComponents/prodcutcardComponent";
 import styles from "../../css/Components-css/WishListCSS/JustForYouComponent.module.css";
+import Button from "../ButtonComponent";
 
 export interface JustForYouItem {
   name: string;
@@ -24,7 +25,7 @@ const JustForYouComponent: React.FC<JustForYouComponentProps> = ({ items }) => {
       </div>
       <div className={styles.justForYouMainHeader}>
         <h2 className={styles.justForYouMainTitle}>Just For You</h2>
-        <button className={styles.seeAllButton}>See All</button>
+        <Button variant="navigation">See All</Button>
       </div>
       <div className={styles.justForYouGrid}>
         {items.map((item) => (
