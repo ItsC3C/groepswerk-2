@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ProductCard } from "./prodcutcardComponent";
+import { Product } from "../types";
 import styles from "../css/Components-css/ourProductsComponent.module.css";
-
-interface Product {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  rating?: { rate: number; count: number };
-}
 
 export function OurProducts() {
   const [products, setProducts] = useState<Product[]>([]);

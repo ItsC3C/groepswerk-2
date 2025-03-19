@@ -133,19 +133,19 @@
     display: flex;
     gap: 30px;
     overflow: visible;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling effect */
-    white-space: nowrap; /* Prevents line breaks */
-    padding-bottom: 10px; /* Space for scrollbar if necessary */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding-bottom: 10px;
   }
 
   .productGrid::-webkit-scrollbar {
-    display: none; /* Hides scrollbar for cleaner UI */
+    display: none;
   }
 
   .productGrid > * {
-    flex: 0 0 auto; /* Ensures items don’t shrink */
-    width: 250px; /* Adjust the width of each product card */
+    flex: 0 0 auto;
+    width: 250px;
   }
 
   .viewAll {
