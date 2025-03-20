@@ -22,4 +22,5 @@ export interface PokemonCard {
   types: string[];
   price: number;
   rarity: string;
+  discount?: number;
 }

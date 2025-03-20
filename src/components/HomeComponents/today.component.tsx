@@ -1,55 +1,34 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../store/productSlice";
+import { RootState, AppDispatch } from "../../store/store";
 import leftArrow from "../../assets/arrow_left.png";
 import rightArrow from "../../assets/arrow_right.png";
 import { ProductCard } from "./prodcutcardComponent";
-import img1 from "../../assets/FSImage1.png";
-import img2 from "../../assets/FSImage2.png";
-import img3 from "../../assets/FSImage3.png";
-import img4 from "../../assets/FSImage4.png";
 import styles from "../../css/Components-css/HomeCSS/todayComponent.module.css";
 import Button from "../ButtonComponent";
 
-const products = [
-  {
-    name: "HAVIT HV-G92 Gamepad",
-    image: img1,
-    price: 120,
-    originalPrice: 160,
-    rating: 5,
-    reviews: 88,
-    discount: 40,
-  },
-  {
-    name: "AK-900 Wired Keyboard",
-    image: img2,
-    price: 960,
-    originalPrice: 1160,
-    rating: 4,
-    reviews: 75,
-    discount: 35,
-  },
-  {
-    name: "IPS LCD Gaming Monitor",
-    image: img3,
-    price: 370,
-    originalPrice: 400,
-    rating: 5,
-    reviews: 99,
-    discount: 30,
-  },
-  {
-    name: "S-Series Comfort Chair",
-    image: img4,
-    price: 375,
-    originalPrice: 400,
-    rating: 4,
-    reviews: 99,
-    discount: 25,
-  },
-];
-
 export function FlashSales() {
+  const dispatch = useDispatch<AppDispatch>();
+  const { products, status } = useSelector(
+    (state: RootState) => state.products
+  );
   const sliderRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    dispatch(fetchProducts()); // Fetch products when component loads
+  }, [dispatch]);
+
+  if (status === "loading") return <p>Loading Flash Sales...</p>;
+  if (status === "error") return <p>Error loading flash sales.</p>;
+
+  const flashSaleProducts = products
+    .map((product, index) => ({
+      ...product,
+      discount: product.discount ?? [10, 20, 30, 40, 50, 15][index % 6], // ✅ Ensure discount exists
+    }))
+    .filter((product) => product.discount > 0) // ✅ Ensure products are not excluded
+    .slice(0, 6); // Limit to 6 products
 
   const scrollLeft = () => {
     if (sliderRef.current) {
@@ -74,6 +53,7 @@ export function FlashSales() {
           <h2>Flash Sales</h2>
         </div>
 
+        {/* Countdown Timer */}
         <div className={styles.countdown}>
           {["03", "23", "19", "56"].map((time, index) => (
             <div key={index} className={styles.wrapper}>
@@ -92,7 +72,6 @@ export function FlashSales() {
           <Button
             variant="navigation"
             className={styles.navButton}
-            aria-label="Previous category"
             onClick={scrollLeft}
           >
             <img src={leftArrow} alt="Previous" className={styles.icon} />
@@ -100,7 +79,6 @@ export function FlashSales() {
           <Button
             variant="navigation"
             className={styles.navButton}
-            aria-label="Next category"
             onClick={scrollRight}
           >
             <img src={rightArrow} alt="Next" className={styles.icon} />
@@ -108,11 +86,15 @@ export function FlashSales() {
         </div>
       </div>
 
-      {/* Slider Container */}
+      {/* Product Slider */}
       <div className={styles.productGrid} ref={sliderRef}>
-        {products.map((product) => (
-          <ProductCard key={product.name} {...product} />
-        ))}
+        {flashSaleProducts.length > 0 ? (
+          flashSaleProducts.map((product) => (
+            <ProductCard key={product._id} {...product} />
+          ))
+        ) : (
+          <p>No flash sales available.</p>
+        )}
       </div>
 
       <div className={styles.viewAll}>
