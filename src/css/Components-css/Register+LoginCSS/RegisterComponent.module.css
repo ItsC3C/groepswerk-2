@@ -1,0 +1,81 @@
+.registerPageForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+
+    .registerPageHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .registerPageHeaderTitle {
+            font-size: 36px;
+            line-height: 30px;
+            letter-spacing: 1.44px;
+            word-wrap: break-word;
+        }
+
+        .registerPageHeaderSubtitle {
+            font-size: 16px;
+            line-height: 24px;
+            word-wrap: break-word;
+        }
+    }
+
+    .registerPageInputFields {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+
+        .nameLabel,
+        .emailLabel,
+        .passwordLabel {
+            padding: 1rem 0.5rem;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+            &:active,
+            &:focus {
+                outline: none;
+                border-bottom: 1px solid black;
+            }
+        }
+    }
+
+    .registerPageActionContainer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+
+        .registerPageAlternateActionContainer .registerPageGoogleSignup button {
+            width: 100%;
+        }
+
+        .registerPageLoginContainer {
+            padding-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+
+            .registerPageLoginLinkContainer {
+                cursor: pointer;
+                color: black;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

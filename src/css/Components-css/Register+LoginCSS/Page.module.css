@@ -1,0 +1,8 @@
+.registerPage {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+}
