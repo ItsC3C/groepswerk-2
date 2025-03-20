@@ -1,24 +1,25 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../store/productSlice";
+import { RootState, AppDispatch } from "../../store/store"; // Import AppDispatch
 import { ProductCard } from "../HomeComponents/prodcutcardComponent";
 import styles from "../../css/Components-css/HomeCSS/ourProductsComponent.module.css";
 import Button from "../ButtonComponent";
-import { Product } from "../../types";
 import leftArrow from "../../assets/arrow_left.png";
 import rightArrow from "../../assets/arrow_right.png";
 
 export function OurProducts() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const dispatch = useDispatch<AppDispatch>(); // ✅ FIX: Typed useDispatch
+  const { products, status } = useSelector(
+    (state: RootState) => state.products
+  );
+
   useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products") // voorlopige api
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
-  }, []);
+    dispatch(fetchProducts()); // ✅ This will now work
+  }, [dispatch]);
+
+  if (status === "loading") return <p>Loading...</p>;
+  if (status === "error") return <p>Error fetching products.</p>;
 
   return (
     <section className={styles.ourProducts}>
@@ -51,18 +52,11 @@ export function OurProducts() {
 
       <div className={styles.productGrid}>
         {products.slice(0, 8).map((product) => (
-          <div key={product.id} className={styles.productCardWrapper}>
-            {(product.rating?.rate ?? 0) >= 4.5 && (
+          <div key={product._id} className={styles.productCardWrapper}>
+            {product.abilities.length > 1 && product.abilities[1] !== null && (
               <div className={styles.newBadge}>New</div>
             )}
-
-            <ProductCard
-              name={product.title}
-              image={product.image}
-              price={product.price}
-              rating={product.rating?.rate ?? 4}
-              reviews={product.rating?.count ?? 0}
-            />
+            <ProductCard {...product} />
           </div>
         ))}
       </div>

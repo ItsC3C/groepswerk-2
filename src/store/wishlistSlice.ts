@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface WishlistState {
-  items: string[]; // Hier kun je IDs van producten opslaan
+  items: string[];
 }
 
 const initialState: WishlistState = {
