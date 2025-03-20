@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../css/Components-css/Breadcrumb.module.css";
+import styles from "../css/Breadcrumb.module.css";
 
 interface BreadcrumbComponentProps {
   current: string;
