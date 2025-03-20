@@ -1,6 +1,10 @@
 import { Heart, Eye } from "lucide-react";
 import styles from "../../css/Components-css/HomeCSS/productcardComponent.module.css";
 import Button from "../../components/ButtonComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { addToWishlist, removeFromWishlist } from "../../store/wishlistSlice";
+import { addToCart } from "../../store/cartSlice";
 
 interface ProductCardProps {
   name: string;
@@ -21,6 +25,10 @@ export function ProductCard({
   reviews,
   discount,
 }: ProductCardProps) {
+  const dispatch = useDispatch();
+  const wishlist = useSelector((state: RootState) => state.wishlist.items);
+  const isInWishlist = wishlist.includes(name); // Check of product al in de wishlist zit
+
   return (
     <div className={styles.productCard}>
       <div className={styles.imageContainer}>
@@ -29,8 +37,16 @@ export function ProductCard({
         {discount && <div className={styles.discount}>-{discount}%</div>}
 
         <div className={styles.actionButtons}>
-          <Button variant="confirm" className={styles.actionButton}>
-            <Heart className={styles.icon} />
+          <Button
+            variant="confirm"
+            className={styles.actionButton}
+            onClick={() =>
+              isInWishlist
+                ? dispatch(removeFromWishlist(name))
+                : dispatch(addToWishlist(name))
+            }
+          >
+            <Heart className={isInWishlist ? styles.activeIcon : styles.icon} />
           </Button>
           <Button
             variant="confirm"
@@ -41,7 +57,11 @@ export function ProductCard({
           </Button>
         </div>
 
-        <Button variant="navigation" className={styles.addToCart}>
+        <Button
+          variant="navigation"
+          className={styles.addToCart}
+          onClick={() => dispatch(addToCart(name))}
+        >
           Add To Cart
         </Button>
       </div>
