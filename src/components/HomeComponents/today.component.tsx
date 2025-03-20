@@ -7,6 +7,7 @@ import rightArrow from "../../assets/arrow_right.png";
 import { ProductCard } from "./prodcutcardComponent";
 import styles from "../../css/Components-css/HomeCSS/todayComponent.module.css";
 import Button from "../ButtonComponent";
+import { Loading } from "../LoadingComponent/Loading";
 
 export function FlashSales() {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,7 +20,7 @@ export function FlashSales() {
     dispatch(fetchProducts()); // Fetch products when component loads
   }, [dispatch]);
 
-  if (status === "loading") return <p>Loading Flash Sales...</p>;
+  if (status === "loading") return <Loading />;
   if (status === "error") return <p>Error loading flash sales.</p>;
 
   const flashSaleProducts = products

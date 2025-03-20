@@ -7,18 +7,19 @@ import styles from "../../css/Components-css/HomeCSS/ourProductsComponent.module
 import Button from "../ButtonComponent";
 import leftArrow from "../../assets/arrow_left.png";
 import rightArrow from "../../assets/arrow_right.png";
+import { Loading } from "../LoadingComponent/Loading";
 
 export function OurProducts() {
-  const dispatch = useDispatch<AppDispatch>(); // ✅ FIX: Typed useDispatch
+  const dispatch = useDispatch<AppDispatch>(); //  Typed useDispatch
   const { products, status } = useSelector(
     (state: RootState) => state.products
   );
 
   useEffect(() => {
-    dispatch(fetchProducts()); // ✅ This will now work
+    dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (status === "loading") return <p>Loading...</p>;
+  if (status === "loading") return <Loading />;
   if (status === "error") return <p>Error fetching products.</p>;
 
   return (
