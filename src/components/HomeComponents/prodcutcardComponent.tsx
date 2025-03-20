@@ -39,14 +39,16 @@ export function ProductCard({
         <div className={styles.actionButtons}>
           <Button
             variant="confirm"
-            className={styles.actionButton}
+            className={`${styles.actionButton} ${
+              isInWishlist ? styles.activeWishlist : ""
+            }`}
             onClick={() =>
               isInWishlist
                 ? dispatch(removeFromWishlist(name))
                 : dispatch(addToWishlist(name))
             }
           >
-            <Heart className={isInWishlist ? styles.activeIcon : styles.icon} />
+            <Heart className={styles.icon} />
           </Button>
           <Button
             variant="confirm"
