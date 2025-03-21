@@ -1,0 +1,20 @@
+.container {
+    margin-top: 40px;
+
+    .heading {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 40px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+
+        .empty {
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+    }
+}

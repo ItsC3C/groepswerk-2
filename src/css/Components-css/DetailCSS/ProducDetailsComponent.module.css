@@ -1,0 +1,51 @@
+.container {
+    margin-bottom: 40px;
+
+    .title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+
+    .inStock {
+        display: block;
+        font-size: 14px;
+        color: #0f6;
+        margin-bottom: 16px;
+    }
+
+    .priceSection {
+        display: flex;
+        align-items: baseline;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 24px;
+
+        .discountedPrice {
+            margin-right: 8px;
+        }
+
+        .originalPrice {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.5);
+            text-decoration: line-through;
+        }
+    }
+
+    .description {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+        margin-bottom: 24px;
+    }
+
+    .actions {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

@@ -14,6 +14,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MyAccountPage from "./pages/MyAccountPage";
 import PageNoutFound from "./pages/PageNoutFound";
+import DetailPage from "./pages/DetailPage";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/account" element={<MyAccountPage />} />
         <Route path="/page-not-found" element={<PageNoutFound />} />
+        <Route path="/detail" element={<DetailPage />} />
       </Routes>
     </Layout>
   );
