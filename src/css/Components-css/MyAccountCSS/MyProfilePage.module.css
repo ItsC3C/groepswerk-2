@@ -1,0 +1,42 @@
+.profileContainer {
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+
+    .heading {
+        font-size: 20px;
+        font-weight: 500;
+        color: #DB4444;
+        margin-bottom: 2rem;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+        padding-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .detailSection {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form {
+        padding: 0 1rem;
+    }
+
+    .profileContainer {
+        padding: 1rem;
+    }
+}

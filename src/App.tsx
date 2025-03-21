@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 import MainPage from "./pages/MainPage";
 import Layout from "./Layout/Layout";
 import "./css/App.css";
@@ -15,6 +15,12 @@ import RegisterPage from "./pages/RegisterPage";
 import MyAccountPage from "./pages/MyAccountPage";
 import PageNoutFound from "./pages/PageNoutFound";
 import DetailPage from "./pages/DetailPage";
+import MyProfilePage from "./pages/MyProfilePage";
+import AddressPage from "./pages/AddressPage";
+import PaymentPage from "./pages/PaymentPage";
+import OrdersPage from "./pages/OrdersPage";
+import ReturnPage from "./pages/ReturnPage";
+import CancellationPage from "./pages/CancellationPage";
 
 const App = () => {
   return (
@@ -31,7 +37,14 @@ const App = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/account" element={<MyAccountPage />} />
+        <Route path="/account" element={<MyAccountPage />}>
+          <Route path="" element={<MyProfilePage />} />
+          <Route path="address-book" element={<AddressPage />} />
+          <Route path="payment-options" element={<PaymentPage />} />
+          <Route path="orders" element={<OrdersPage />} />
+          <Route path="returns" element={<ReturnPage />} />
+          <Route path="cancellations" element={<CancellationPage />} />
+        </Route>
         <Route path="/page-not-found" element={<PageNoutFound />} />
         <Route path="/detail" element={<DetailPage />} />
       </Routes>

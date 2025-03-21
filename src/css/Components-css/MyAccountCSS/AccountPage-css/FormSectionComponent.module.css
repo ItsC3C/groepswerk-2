@@ -1,0 +1,11 @@
+.formSection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+
+    .sectionTitle {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+}

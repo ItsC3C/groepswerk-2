@@ -1,5 +1,5 @@
-import { Search, Heart, ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Search, Heart, ShoppingCart, UserRound } from "lucide-react";
+import { NavLink } from "react-router";
 import styles from "../css/Layout-css/Header.module.css";
 
 export function Header() {
@@ -7,23 +7,43 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.headerContent}>
-          <Link to="/" className={styles.logo}>
+          <NavLink to="/" className={styles.logo}>
             Exclusive
-          </Link>
+          </NavLink>
 
           <nav className={styles.nav}>
-            <Link to="/" className={styles.navLink}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `${styles.NavLink} ${isActive ? styles.activeNavLink : ""}`
+              }
+            >
               Home
-            </Link>
-            <Link to="/contact" className={styles.navLink}>
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `${styles.NavLink} ${isActive ? styles.activeNavLink : ""}`
+              }
+            >
               Contact
-            </Link>
-            <Link to="/about" className={styles.navLink}>
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `${styles.NavLink} ${isActive ? styles.activeNavLink : ""}`
+              }
+            >
               About
-            </Link>
-            <Link to="/register" className={styles.navLink}>
+            </NavLink>
+            <NavLink
+              to="/register"
+              className={({ isActive }) =>
+                `${styles.NavLink} ${isActive ? styles.activeNavLink : ""}`
+              }
+            >
               Register
-            </Link>
+            </NavLink>
           </nav>
 
           <div className={styles.actions}>
@@ -36,17 +56,32 @@ export function Header() {
               <Search className={styles.searchIcon} />
             </div>
 
-            <button className={styles.iconButton}>
-              <Link to="/wishlist">
-                <Heart className={styles.icon} />
-              </Link>
-            </button>
-
-            <button className={styles.iconButton}>
-              <Link to="/cart">
-                <ShoppingCart className={styles.icon} />
-              </Link>
-            </button>
+            <span className={styles.iconButton}>
+              <NavLink
+                to="/wishlist"
+                className={({ isActive }) =>
+                  `${styles.icon} ${isActive ? styles.activeIcon : ""}`
+                }
+              >
+                <Heart />
+              </NavLink>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  `${styles.icon} ${isActive ? styles.activeIcon : ""}`
+                }
+              >
+                <ShoppingCart />
+              </NavLink>
+              <NavLink
+                to="/account"
+                className={({ isActive }) =>
+                  `${styles.icon} ${isActive ? styles.activeIcon : ""}`
+                }
+              >
+                <UserRound />
+              </NavLink>
+            </span>
           </div>
         </div>
       </div>

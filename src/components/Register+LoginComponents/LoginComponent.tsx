@@ -1,6 +1,6 @@
 import styles from "../../css/Components-css/Register+LoginCSS/LoginComponent.module.css";
 import Button from "../ButtonComponent";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const LoginComponent = () => {
   return (

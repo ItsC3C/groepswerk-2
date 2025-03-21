@@ -1,0 +1,121 @@
+.accountContainer {
+    display: flex;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 5rem 0;
+
+    .sidebar {
+        width: 300px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .accountNav {
+            .title {
+                font-size: 18px;
+                font-weight: 500;
+                padding-bottom: 2rem;
+            }
+
+            .navList {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .navLink {
+                font-size: 16px;
+                font-weight: 400;
+                color: #DB4444;
+                text-decoration: none;
+            }
+
+            .navLink:hover {
+                text-decoration: underline;
+            }
+
+            .activeNavLink {
+                text-decoration: underline;
+            }
+        }
+
+        .ordersSection {
+            margin-bottom: 24px;
+
+            .sectionTitle {
+                font-size: 18px;
+                font-weight: 500;
+                padding-bottom: 2rem;
+            }
+
+            .navList {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .navLink {
+                font-size: 16px;
+                font-weight: 400;
+                color: #DB4444;
+                text-decoration: none;
+            }
+
+            .navLink:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .outletWrapper {
+        width: 100%;
+        flex: 1;
+        margin-left: 32px;
+        width: auto;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .accountContainer {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .accountNav .title,
+    .sectionTitle {
+        font-size: 20px;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+
+    .navList {
+        gap: 12px;
+        align-items: center;
+    }
+
+    .navLink {
+        font-size: 18px;
+    }
+
+    .ordersSection {
+        margin-top: 32px;
+    }
+
+    .outletWrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 32px;
+    }
+}
