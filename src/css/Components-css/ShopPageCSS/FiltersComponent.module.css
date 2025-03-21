@@ -1,0 +1,11 @@
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    select {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}

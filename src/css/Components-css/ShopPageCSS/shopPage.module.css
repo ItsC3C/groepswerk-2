@@ -1,0 +1,44 @@
+.shop {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 5rem 0;
+
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        select,
+        label {
+            font-size: 1rem;
+        }
+
+        input[type="range"] {
+            margin-left: 0.5rem;
+        }
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+
+        button {
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
