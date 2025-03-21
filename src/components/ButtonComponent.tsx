@@ -4,13 +4,13 @@ import styles from "../css/Button.module.css";
 
 type LinkButtonProps = {
   to: string;
-  variant?: "confirm" | "navigation";
+  variant?: "confirm" | "navigation" | "danger"; // ✅ Added "danger"
   children: React.ReactNode;
 } & React.ComponentPropsWithoutRef<typeof Link>;
 
 type RegularButtonProps = {
   to?: undefined;
-  variant?: "confirm" | "navigation";
+  variant?: "confirm" | "navigation" | "danger"; // ✅ Added "danger"
   children: React.ReactNode;
 } & React.ComponentPropsWithoutRef<"button">;
 
@@ -18,9 +18,14 @@ type ButtonProps = LinkButtonProps | RegularButtonProps;
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { variant = "confirm", children } = props;
-  // Note the reversal: confirm uses the red style (navigation CSS) and navigation uses the transparent style (confirm CSS)
+
+  // ✅ Apply correct styles based on variant
   const className = `${styles.button} ${
-    variant === "confirm" ? styles.navigation : styles.confirm
+    variant === "confirm"
+      ? styles.confirm
+      : variant === "navigation"
+      ? styles.navigation
+      : styles.danger // ✅ Apply "danger" styling
   }`;
 
   if ("to" in props && props.to) {

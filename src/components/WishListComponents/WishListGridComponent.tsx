@@ -1,26 +1,32 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { removeFromWishlist } from "../../store/wishlistSlice";
 import { ProductCard } from "../HomeComponents/prodcutcardComponent";
 import styles from "../../css/Components-css/WishListCSS/WishListGridComponent.module.css";
-
-export interface WishlistItem {
-  name: string;
-  image: string;
-  price: number;
-  originalPrice: number;
-  rating: number;
-  reviews: number;
-  discount: number;
-}
+import { PokemonCard } from "../../types";
 
 interface WishListGridProps {
-  items: WishlistItem[];
+  items: PokemonCard[];
 }
 
 const WishListGridComponent: React.FC<WishListGridProps> = ({ items }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.wishlistGrid}>
       {items.map((item) => (
-        <ProductCard key={item.name} {...item} />
+        <ProductCard
+          key={item._id}
+          _id={item._id}
+          name={item.name}
+          imageURL={item.imageURL}
+          price={item.price}
+          hitPoints={item.hitPoints}
+          abilities={item.abilities}
+          discount={item.discount ?? 0}
+          types={item.types} // ✅ ADD THIS
+          rarity={item.rarity}
+        />
       ))}
     </div>
   );
