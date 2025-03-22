@@ -67,10 +67,11 @@
 /* Carousel */
 .carousel {
   flex: 1;
-  background-color: black;
+  background-color: white;
   border-radius: 4px;
   overflow: hidden;
   height: 360px;
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
 
   .carouselContent {
     padding: 24px;
@@ -78,6 +79,30 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
+    .slidesWrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Each slide */
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    /* Optional if you want fade instead of slide */
+    .activeSlide {
+      opacity: 1;
+      z-index: 2;
+    }
 
     @media (min-width: 1024px) {
       padding-left: 65px;
@@ -100,7 +125,7 @@
       .textWrapper {
         display: flex;
         flex-direction: column;
-        color: white;
+        color: black;
 
         .appleImage {
           margin: 0 auto 16px;
@@ -112,7 +137,7 @@
         }
 
         .title {
-          font-size: 32px;
+          font-size: 25px;
           font-weight: 600;
           line-height: 1.2;
           margin-bottom: 12px;
@@ -164,12 +189,17 @@
     }
 
     .heroImageContainer {
-      flex: 1;
+      max-width: 130px;
+      max-height: 360px;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
       display: flex;
+      align-items: center;
       justify-content: center;
-      height: 100%;
 
       @media (min-width: 1024px) {
+        max-width: 200px;
         justify-content: flex-end;
       }
 
@@ -184,5 +214,23 @@
         }
       }
     }
+  }
+}
+
+.fadeImageAnimation {
+  animation: fadeImage 0.9s ease-in-out;
+}
+
+@keyframes fadeImage {
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
   }
 }
