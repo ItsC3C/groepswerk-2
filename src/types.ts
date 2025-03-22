@@ -25,3 +25,8 @@ export interface PokemonCard {
   rarity: string;
   discount?: number;
 }
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
