@@ -54,7 +54,7 @@ const App = () => {
           <Route path="cancellations" element={<CancellationPage />} />
         </Route>
         <Route path="/page-not-found" element={<PageNoutFound />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/product/:slug" element={<DetailPage />} />
         <Route
           path="/admin"
           element={

@@ -8,6 +8,7 @@ import { ProductCard } from "./prodcutcardComponent";
 import styles from "../../css/Components-css/HomeCSS/todayComponent.module.css";
 import Button from "../ButtonComponent";
 import { Loading } from "../LoadingComponent/Loading";
+import { Link } from "react-router-dom";
 
 export function FlashSales() {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,7 +18,7 @@ export function FlashSales() {
   const sliderRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    dispatch(fetchProducts()); // Fetch products when component loads
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   if (status === "loading") return <Loading />;
@@ -26,10 +27,10 @@ export function FlashSales() {
   const flashSaleProducts = products
     .map((product, index) => ({
       ...product,
-      discount: product.discount ?? [10, 20, 30, 40, 50, 15][index % 6], // ✅ Ensure discount exists
+      discount: product.discount ?? [10, 20, 30, 40, 50, 15][index % 6],
     }))
-    .filter((product) => product.discount > 0) // ✅ Ensure products are not excluded
-    .slice(0, 6); // Limit to 6 products
+    .filter((product) => product.discount > 0)
+    .slice(0, 6);
 
   const scrollLeft = () => {
     if (sliderRef.current) {
@@ -54,7 +55,6 @@ export function FlashSales() {
           <h2>Flash Sales</h2>
         </div>
 
-        {/* Countdown Timer */}
         <div className={styles.countdown}>
           {["03", "23", "19", "56"].map((time, index) => (
             <div key={index} className={styles.wrapper}>
@@ -87,7 +87,6 @@ export function FlashSales() {
         </div>
       </div>
 
-      {/* Product Slider */}
       <div className={styles.productGrid} ref={sliderRef}>
         {flashSaleProducts.length > 0 ? (
           flashSaleProducts.map((product) => (
@@ -99,7 +98,9 @@ export function FlashSales() {
       </div>
 
       <div className={styles.viewAll}>
-        <Button variant="confirm">View All Products</Button>
+        <Button variant="confirm">
+          <Link to="/shop">View All</Link>
+        </Button>
       </div>
     </section>
   );

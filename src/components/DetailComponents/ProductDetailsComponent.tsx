@@ -10,22 +10,17 @@ import styles from "../../css/Components-css/DetailCSS/ProducDetailsComponent.mo
 interface ProductDetailsProps {
   productId: string;
   name: string;
-  originalPrice: number;
-  discount: number;
-  description: string;
+  price: number;
 }
 
 const ProductDetailsComponent: React.FC<ProductDetailsProps> = ({
   productId,
   name,
-  originalPrice,
-  discount,
-  description,
+  price,
 }) => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
   const isInWishlist = wishlist.includes(productId);
-  const discountedPrice = originalPrice * (1 - discount / 100);
 
   const handleWishlistToggle = () =>
     isInWishlist
@@ -38,15 +33,8 @@ const ProductDetailsComponent: React.FC<ProductDetailsProps> = ({
       <span className={styles.inStock}>In Stock</span>
 
       <div className={styles.priceSection}>
-        <span className={styles.discountedPrice}>
-          ${discountedPrice.toFixed(2)}
-        </span>
-        <span className={styles.originalPrice}>
-          ${originalPrice.toFixed(2)}
-        </span>
+        <span className={styles.price}>${price.toFixed(2)}</span>
       </div>
-
-      <p className={styles.description}>{description}</p>
 
       <div className={styles.actions}>
         <Button variant="confirm">Buy Now</Button>

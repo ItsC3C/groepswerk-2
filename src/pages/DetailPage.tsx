@@ -1,22 +1,26 @@
 import React from "react";
-import img1 from "../assets/FSImage1.png";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 import BreadcrumbComponent from "../components/BreadcrumbComponent";
 import ProductImageComponent from "../components/DetailComponents/ProductImageComponent";
 import ProductDetailsComponent from "../components/DetailComponents/ProductDetailsComponent";
 import RelatedItemsComponent from "../components/DetailComponents/RealtedItemsComponent";
 import styles from "../css/Components-css/DetailCSS/DetailPage.module.css";
+import slugify from "slugify";
 
 const DetailPage: React.FC = () => {
-  const productId = "havic-hv-g92";
-  const product = {
-    _id: productId,
-    name: "Havit HV G‑92 Gamepad",
-    imageURL: img1,
-    price: 192,
-    discount: 0,
-    description:
-      "PlayStation 5 Controller Skin — High quality vinyl with air channel adhesive for easy bubble-free install & mess-free removal...",
-  };
+  const { slug } = useParams<{ slug: string }>();
+  const product = useSelector((state: RootState) =>
+    state.products.products.find(
+      (p) => slugify(p.name, { lower: true, strict: true }) === slug
+    )
+  );
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   const relatedProducts = Array(4).fill(product);
 
   return (
@@ -27,9 +31,7 @@ const DetailPage: React.FC = () => {
         <ProductDetailsComponent
           productId={product._id}
           name={product.name}
-          originalPrice={product.price}
-          discount={product.discount}
-          description={product.description}
+          price={product.price}
         />
       </div>
       <RelatedItemsComponent products={relatedProducts} />

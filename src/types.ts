@@ -7,7 +7,7 @@ export interface Product {
 }
 
 export interface Ability {
-  _id: string; // ✅ Ensure _id is included
+  _id: string;
   name: string;
   cost: number;
   damage: string;
@@ -17,7 +17,7 @@ export interface PokemonCard {
   _id: string;
   name: string;
   hitPoints: number;
-  abilities: (Ability | null)[]; // ✅ Ensure abilities array allows null
+  abilities: (Ability | null)[];
   imageURL: string;
   types: string[];
   price: number;

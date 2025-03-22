@@ -6,6 +6,8 @@ import { RootState } from "../../store/store";
 import { addToWishlist, removeFromWishlist } from "../../store/wishlistSlice";
 import { addToCart } from "../../store/cartSlice";
 import { PokemonCard } from "../../types";
+import { Link } from "react-router-dom";
+import slugify from "slugify";
 
 export function ProductCard({
   _id,
@@ -14,18 +16,16 @@ export function ProductCard({
   price,
   hitPoints,
   abilities = [],
-  discount = 0, //  Default discount to 0 if missing
+  discount = 0,
 }: PokemonCard) {
   const dispatch = useDispatch();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
   const isInWishlist = wishlist.includes(_id);
 
-  // Hide cards with no price
   if (price === undefined || price === null) {
-    return null; // Don't render if no price
+    return null;
   }
 
-  // Use discounted price instead of original price if discount is applied
   const discountedPrice =
     discount > 0 ? price - (price * discount) / 100 : price;
 
@@ -34,10 +34,8 @@ export function ProductCard({
       <div className={styles.imageContainer}>
         <img src={imageURL} alt={name} />
 
-        {/* Show discount if applicable */}
         {discount > 0 && <div className={styles.discount}>-{discount}%</div>}
 
-        {/* Only show "Special Ability!" label if NO discount exists */}
         {discount === 0 && abilities.length > 1 && abilities[1] !== null && (
           <div className={styles.specialAbility}>Special Ability!</div>
         )}
@@ -58,7 +56,10 @@ export function ProductCard({
           </Button>
           <Button
             variant="confirm"
-            to={`/product/${_id}`}
+            to={`/product/${slugify(name, {
+              lower: true,
+              strict: true,
+            })}`}
             className={styles.actionButton}
           >
             <Eye className={styles.icon} />
@@ -75,10 +76,14 @@ export function ProductCard({
       </div>
 
       <div className={styles.productInfo}>
-        <h3 className={styles.productName}>{name}</h3>
+        <Link
+          to={`/product/${slugify(name, { lower: true, strict: true })}`}
+          className={styles.productName}
+        >
+          {name}
+        </Link>
 
         <div className={styles.pricing}>
-          {/* If price exists, show formatted price; otherwise, show 'N/A' */}
           <span className={styles.currentPrice}>
             {price !== undefined && price !== null
               ? `$${discountedPrice.toFixed(2)}`
