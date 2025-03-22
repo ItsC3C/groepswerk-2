@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/productSlice";
-import { RootState, AppDispatch } from "../../store/store"; // Import AppDispatch
+import { RootState, AppDispatch } from "../../store/store";
 import { ProductCard } from "../HomeComponents/prodcutcardComponent";
 import styles from "../../css/Components-css/HomeCSS/ourProductsComponent.module.css";
 import Button from "../ButtonComponent";
@@ -10,14 +10,32 @@ import rightArrow from "../../assets/arrow_right.png";
 import { Loading } from "../LoadingComponent/Loading";
 
 export function OurProducts() {
-  const dispatch = useDispatch<AppDispatch>(); //  Typed useDispatch
+  const dispatch = useDispatch<AppDispatch>();
   const { products, status } = useSelector(
     (state: RootState) => state.products
   );
 
+  const [pageIndex, setPageIndex] = useState(0);
+  const itemsPerPage = 8;
+  const maxPage = Math.ceil(products.length / itemsPerPage) - 1;
+
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    if (status === "idle") {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, status]);
+
+  const handleNext = () => {
+    if (pageIndex < maxPage) {
+      setPageIndex(pageIndex + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (pageIndex > 0) {
+      setPageIndex(pageIndex - 1);
+    }
+  };
 
   if (status === "loading") return <Loading />;
   if (status === "error") return <p>Error fetching products.</p>;
@@ -38,6 +56,8 @@ export function OurProducts() {
             variant="navigation"
             className={styles.navButton}
             aria-label="Previous category"
+            onClick={handlePrevious}
+            disabled={pageIndex === 0}
           >
             <img src={leftArrow} alt="Previous" className={styles.icon} />
           </Button>
@@ -45,6 +65,8 @@ export function OurProducts() {
             variant="navigation"
             className={styles.navButton}
             aria-label="Next category"
+            onClick={handleNext}
+            disabled={pageIndex === maxPage}
           >
             <img src={rightArrow} alt="Next" className={styles.icon} />
           </Button>
@@ -52,14 +74,17 @@ export function OurProducts() {
       </div>
 
       <div className={styles.productGrid}>
-        {products.slice(0, 8).map((product) => (
-          <div key={product._id} className={styles.productCardWrapper}>
-            {product.abilities.length > 1 && product.abilities[1] !== null && (
-              <div className={styles.newBadge}>New</div>
-            )}
-            <ProductCard {...product} />
-          </div>
-        ))}
+        {products
+          .slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage)
+          .map((product) => (
+            <div key={product._id} className={styles.productCardWrapper}>
+              {product.abilities.length > 1 &&
+                product.abilities[1] !== null && (
+                  <div className={styles.newBadge}>New</div>
+                )}
+              <ProductCard {...product} />
+            </div>
+          ))}
       </div>
 
       <div className={styles.viewAll}>
