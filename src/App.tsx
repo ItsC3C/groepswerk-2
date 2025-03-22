@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import MainPage from "./pages/MainPage";
 import Layout from "./Layout/Layout";
 import "./css/App.css";
@@ -21,6 +21,14 @@ import PaymentPage from "./pages/PaymentPage";
 import OrdersPage from "./pages/OrdersPage";
 import ReturnPage from "./pages/ReturnPage";
 import CancellationPage from "./pages/CancellationPage";
+import { useEffect } from "react";
+
+const ExternalRedirect = ({ url }: { url: string }) => {
+  useEffect(() => {
+    window.location.href = url;
+  }, [url]);
+  return null;
+};
 
 const App = () => {
   return (
@@ -47,6 +55,13 @@ const App = () => {
         </Route>
         <Route path="/page-not-found" element={<PageNoutFound />} />
         <Route path="/detail" element={<DetailPage />} />
+        <Route
+          path="/admin"
+          element={
+            <ExternalRedirect url="https://gw2-v1-0-0.onrender.com/login" />
+          }
+        />
+        <Route path="*" element={<Navigate to="/page-not-found" replace />} />
       </Routes>
     </Layout>
   );

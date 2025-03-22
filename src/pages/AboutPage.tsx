@@ -74,7 +74,6 @@ const AboutPage: React.FC = () => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <BreadcrumbComponent current="About" />
-        <div className={styles.content}></div>
         <OurStoryComponent />
         <StatsComponent stats={stats} />
         <OurTeamComponent team={team} />
