@@ -78,7 +78,7 @@ const ProductCardCartComponent: React.FC<ProductCardCartComponentProps> = ({
         </div>
       </td>
       <td className={styles.cartItemCell}>
-        <span className={styles.subtotal}>${item.price * item.quantity}</span>
+        <span className={styles.subtotal}>${Number((item.price * item.quantity).toFixed(2))}</span>
       </td>
     </tr>
   );
