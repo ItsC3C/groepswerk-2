@@ -1,9 +1,10 @@
 import { Truck, HeadphonesIcon, Shield } from "lucide-react";
-import NA1 from "../../assets/FeaturedImage1.png";
-import NA2 from "../../assets/FeaturedImage2.png";
-import NA3 from "../../assets/FeaturedImage3.png";
-import NA4 from "../../assets/FeaturedImage4.png";
+import PrismaticETB from "../../assets/Prismatic-Evolutions.png";
+import Bundle151 from "../../assets/151.webp";
+import LostOriginBox from "../../assets/Lost-Origin.webp";
+import XYPack from "../../assets/XY(1).webp";
 import styles from "../../css/Components-css/HomeCSS/newArrivalComponent.module.css";
+import { Link } from "react-router-dom";
 
 export function NewArrival() {
   const services = [
@@ -37,29 +38,48 @@ export function NewArrival() {
       <div className={styles.productGrid}>
         <div className={styles.primaryCard}>
           <div className={styles.imageContainer}>
-            <img src={NA1} alt="PlayStation 5" />
+            <img
+              src={PrismaticETB}
+              alt="PrismaticE Evolutions Elite Trainerbox"
+            />
           </div>
           <div className={styles.productInfo}>
-            <h3>PlayStation 5</h3>
-            <p>Black and White version of the PS5 coming out on sale.</p>
-            <a href="#">Shop Now</a>
+            <h3>PrismaticE Evolutions Elite Trainerbox</h3>
+            <p>
+              Elite trainer box featuring exclusive evolutions, premium cards,
+              and accessories.
+            </p>
+            <Link to="/shop/elite-trainer-box/prismatic-evolutions">
+              Shop Now
+            </Link>
           </div>
         </div>
 
         <div className={styles.secondaryGrid}>
           <div className={styles.secondaryCard}>
             <div className={styles.textContent}>
-              <h3>Women Collection</h3>
-              <p>Featured woman collections that give you another vibe.</p>
-              <a href="#">Shop Now</a>
+              <h3>151 Pokémon Bundle</h3>
+              <p>
+                Complete 151 Pokémon bundle featuring classic cards and
+                collectibles.
+              </p>
+              <Link to="/shop/bundles/151">Shop Now</Link>
             </div>
-            <img src={NA2} alt="Women's Collections" />
+            <img src={Bundle151} alt="151 Bundle" />
           </div>
 
           <div className={styles.tertiaryGrid}>
             {[
-              { img: NA4, title: "Speakers", desc: "Amazon wireless speakers" },
-              { img: NA3, title: "Perfume", desc: "GUCCI INTENSE OUD EDP" },
+              {
+                img: LostOriginBox,
+                title: "Lost Origin Booster Box",
+                desc: "Lost Origin Booster Box: Unleash epic battles, collect rare cards.",
+              },
+              {
+                img: XYPack,
+                title: "X & Y Booster Pack",
+                desc: "X & Y Booster Pack: Unleash epic, rare Pokémon cards.",
+              },
             ].map((item, index) => (
               <div key={index} className={styles.tertiaryCard}>
                 <div className={styles.imageContainer}>

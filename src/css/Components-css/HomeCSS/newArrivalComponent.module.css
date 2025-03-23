@@ -60,12 +60,12 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-bottom: 20px;
+                margin-bottom: 40px;
 
                 img {
                     width: 100%;
-                    scale: 110%;
                     max-width: 511px;
+                    padding-bottom: 160px;
                     height: auto;
                     object-fit: contain;
                     position: absolute;
@@ -112,7 +112,9 @@
 
             .secondaryCard {
                 position: relative;
-                background: #0D0D0D;
+                background: white;
+                border: 1px solid black;
+                color: black;
                 border-radius: 4px;
                 overflow: hidden;
                 display: flex;
@@ -124,7 +126,6 @@
                     position: absolute;
                     bottom: 40px;
                     left: 40px;
-                    color: white;
                     max-width: 255px;
                     z-index: 2;
 
@@ -137,23 +138,22 @@
                     p {
                         font-size: 0.875rem;
                         line-height: 1.3rem;
-                        color: rgba(255, 255, 255, 0.6);
                         margin-bottom: 1rem;
                     }
 
                     a {
                         font-size: 1rem;
                         font-weight: 500;
-                        color: white;
                         transition: color 0.3s ease;
 
                         &:hover {
-                            color: rgba(255, 255, 255, 0.9);
+                            color: black;
                         }
                     }
                 }
 
                 img {
+                    scale: 80%;
                     position: absolute;
                     right: 0;
                     bottom: 0;
@@ -170,13 +170,16 @@
                 gap: 30px;
                 height: 350px;
 
+
                 @media (min-width: 640px) {
                     grid-template-columns: repeat(2, 1fr);
                 }
 
                 .tertiaryCard {
+                    background: white;
+                    border: 1px solid black;
+                    color: black;
                     position: relative;
-                    background: linear-gradient(to bottom, #1A1A1A, #0D0D0D, black);
                     border-radius: 4px;
                     overflow: hidden;
                     padding: 24px;
@@ -189,7 +192,6 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        margin-bottom: 16px;
 
                         img {
                             width: 100%;
@@ -197,8 +199,7 @@
                             height: auto;
                             object-fit: contain;
                             position: absolute;
-                            bottom: 5rem;
-                            scale: 120%;
+                            bottom: 9rem;
                             z-index: 1;
                         }
                     }
@@ -210,25 +211,22 @@
                         h3 {
                             font-size: 1.5rem;
                             font-weight: 600;
-                            color: white;
                             margin-bottom: 0.5rem;
                         }
 
                         p {
                             font-size: 0.875rem;
                             line-height: 1.3rem;
-                            color: rgba(255, 255, 255, 0.6);
                             margin-bottom: 0.5rem;
                         }
 
                         a {
                             font-size: 1rem;
                             font-weight: 500;
-                            color: white;
                             transition: color 0.3s ease;
 
                             &:hover {
-                                color: rgba(255, 255, 255, 0.9);
+                                color: black;
                             }
                         }
                     }

@@ -1,21 +1,16 @@
 import styles from "../../css/Components-css/HomeCSS/categoriesComponent.module.css";
-import {
-  FaMobileAlt,
-  FaDesktop,
-  FaApple,
-  FaCamera,
-  FaHeadphones,
-  FaGamepad,
-} from "react-icons/fa";
+import pack from "../../assets/icons-01.png";
+import card from "../../assets/icons-02.png";
+import bundle from "../../assets/icons-03.png";
+import box from "../../assets/icons-04.png";
 import Button from "../../components/ButtonComponent";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { name: "Phones", icon: FaMobileAlt },
-  { name: "Computers", icon: FaDesktop },
-  { name: "SmartWatch", icon: FaApple },
-  { name: "Camera", icon: FaCamera },
-  { name: "HeadPhones", icon: FaHeadphones },
-  { name: "Gaming", icon: FaGamepad },
+  { name: "Booster Packs", icon: pack },
+  { name: "Booster Cards", icon: card },
+  { name: "Booster Bundles", icon: bundle },
+  { name: "Booster Boxes", icon: box },
 ];
 
 export function Categories() {
@@ -29,29 +24,15 @@ export function Categories() {
           </div>
           <h2>Browse By Category</h2>
         </div>
-
-        <div className={styles.navigation}>
-          <Button
-            variant="navigation"
-            className={styles.navButton}
-            aria-label="Previous category"
-          >
-            <svg className={`${styles.icon} prev`} />
-          </Button>
-          <Button
-            variant="navigation"
-            className={styles.navButton}
-            aria-label="Next category"
-          >
-            <svg className={styles.icon} />
-          </Button>
-        </div>
       </div>
 
       <div className={styles.categoryGrid}>
-        {categories.map((category, index) => {
-          const Icon = category.icon;
-          return (
+        {categories.map((category, index) => (
+          <Link
+            to={`/shop/${category.name}`}
+            className={styles.categoryLink}
+            key={category.name}
+          >
             <Button
               key={category.name}
               variant="confirm"
@@ -59,11 +40,15 @@ export function Categories() {
                 index === 3 ? styles.active : ""
               }`}
             >
-              <Icon className={styles.categoryIcon} />
+              <img
+                src={category.icon}
+                alt={category.name}
+                className={styles.categoryIcon}
+              />
               <span className={styles.categoryText}>{category.name}</span>
             </Button>
-          );
-        })}
+          </Link>
+        ))}
       </div>
     </section>
   );

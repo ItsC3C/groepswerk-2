@@ -8,6 +8,8 @@ import FaqPage from "./pages/FaqPage";
 import TermsOfUsePage from "./pages/TermsOfUsePage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ShopPage from "./pages/ShopPage";
+import ProductsPage from "./pages/ProductPages";
+import BundlesPage from "./pages/BundlesPage";
 import WishlistPage from "./pages/WishlistPage";
 import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
@@ -40,7 +42,10 @@ const App = () => {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/terms" element={<TermsOfUsePage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop" element={<ShopPage />}>
+          <Route index element={<ProductsPage />} />
+          <Route path="bundles" element={<BundlesPage />} />
+        </Route>
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />

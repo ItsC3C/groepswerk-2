@@ -31,3 +31,12 @@ export interface FaqItem {
   question: string;
   answer: string;
 }
+
+export interface PokemonBundle {
+  _id: string;
+  name: string;
+  type: string;
+  series: string;
+  img: string;
+  price: number;
+}

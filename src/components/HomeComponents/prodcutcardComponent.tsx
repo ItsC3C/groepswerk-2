@@ -101,25 +101,6 @@ export function ProductCard({
             <span className={styles.originalPrice}>${price.toFixed(2)}</span>
           )}
         </div>
-
-        <div className={styles.stats}>
-          <span className={styles.hitPoints}>HP: {hitPoints}</span>
-        </div>
-
-        {/* ✅ Show type icons */}
-        {safeTypes.length > 0 && (
-          <div className={styles.types}>
-            {safeTypes.map((type) => (
-              <img
-                key={type._id}
-                src={type.img}
-                alt={type.name}
-                title={type.name}
-                className={styles.typeIcon}
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
