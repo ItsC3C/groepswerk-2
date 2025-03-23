@@ -7,12 +7,11 @@ import CartItemListComponents from "../components/CartComponents/CartItemListCom
 import ReturnButtonsComponents from "../components/CartComponents/ReturButtonsComponent";
 import CouponComponent from "../components/CartComponents/CouponComponent";
 import CartTotalComponent from "../components/CartComponents/CartTotalComponent";
-// ----
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { PokemonCard } from "../types";
-  
-// ----
+import { addToCart, removeFromCart, reduceFromCart } from "../store/cartSlice";
+import { useDispatch } from "react-redux";
+
 // Update CartItem so that id is a string (matching the imported type)
 interface CartItem {
   id: string;
@@ -20,14 +19,14 @@ interface CartItem {
   name: string;
   image: string;
   price: number;
-  originalPrice: number;
-  rating: number;
-  reviews: number;
-  discount: number;
+  // originalPrice: number;
+  // rating: number;
+  // reviews: number;
+  // discount: number;
 }
 
 export default function CartPage() {
-  // ---
+  const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart.items);
   const products = useSelector((state: RootState) => state.products.products);
   
@@ -43,18 +42,13 @@ export default function CartPage() {
       }
     }
   }).filter((el)=>el!==undefined);
-
-
-  console.log("c:", cart);
-  console.log("p:", products);
-  console.log("i:", items);
-  // ---
   
   const [cartItems, setCartItems] = React.useState<CartItem[]>(items);
 
   // Handlers for cart actions (the types now match the imported type)
   const handleRemove = (id: string): void => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    dispatch(removeFromCart(id));
   };
 
   const handleIncrease = (id: string): void => {
@@ -63,6 +57,7 @@ export default function CartPage() {
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
+    dispatch(addToCart(id));
   };
 
   const handleDecrease = (id: string): void => {
@@ -73,6 +68,11 @@ export default function CartPage() {
           : item
       )
     );
+    cartItems.forEach((el)=>{
+      if (el.id == id && el.quantity > 1){
+        dispatch(reduceFromCart(id));
+      }
+    })
   };
 
   // Calculate total cart amount
