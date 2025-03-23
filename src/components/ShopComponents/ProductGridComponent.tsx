@@ -1,9 +1,16 @@
 import React from "react";
 import { ProductCard } from "../HomeComponents/prodcutcardComponent";
 import styles from "../../css/Components-css/ShopPageCSS/ProductGridComponent.module.css";
+import { PokemonCard } from "../../types";
 
 interface ProductGridProps {
-  products: any[];
+  products: PokemonCard[];
+  filters: {
+    category: string;
+    rarity: string;
+    sort: string;
+    page: number;
+  };
 }
 
 const ProductGridComponent: React.FC<ProductGridProps> = ({ products }) => {
