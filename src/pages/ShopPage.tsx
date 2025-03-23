@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/productSlice";
 import { RootState, AppDispatch } from "../store/store";
@@ -8,8 +8,8 @@ import PaginationComponent from "../components/ShopComponents/PaginationComponen
 import styles from "../css/Components-css/ShopPageCSS/shopPage.module.css";
 import { Loading } from "../components/LoadingComponent/Loading";
 import { useSearchParams } from "react-router-dom";
+import axios from "axios";
 
-// ✅ Veilig converteren naar objectvorm
 const normalizeToObject = (
   value: string | { _id: string; name: string } | undefined | null
 ): { _id: string; name: string } => {
@@ -25,9 +25,13 @@ const ShopPage = () => {
     (state: RootState) => state.products
   );
   const [searchParams, setSearchParams] = useSearchParams();
+  const [types, setTypes] = useState<
+    { _id: string; name: string; img: string }[]
+  >([]);
 
   const category = searchParams.get("category") || "All";
   const rarity = searchParams.get("rarity") || "All";
+  const type = searchParams.get("type") || "All";
   const sort = searchParams.get("sort") || "";
   const page = Number(searchParams.get("page") ?? 1);
 
@@ -37,10 +41,16 @@ const ShopPage = () => {
     }
   }, [dispatch, status]);
 
+  useEffect(() => {
+    axios
+      .get("https://gw2-v1-0-0.onrender.com/api/types")
+      .then((res) => setTypes(res.data))
+      .catch((err) => console.error("Failed to fetch types:", err));
+  }, []);
+
   if (status === "loading") return <Loading />;
   if (status === "error") return <p>Failed to load products.</p>;
 
-  // ✅ Filtering & sorting
   const filtered = products
     .filter(
       (p) =>
@@ -48,6 +58,11 @@ const ShopPage = () => {
     )
     .filter(
       (p) => rarity === "All" || normalizeToObject(p.rarity).name === rarity
+    )
+    .filter(
+      (p) =>
+        type === "All" ||
+        p.types.some((t) => normalizeToObject(t).name === type)
     )
     .sort((a, b) => {
       if (sort === "price-asc") return a.price - b.price;
@@ -61,12 +76,11 @@ const ShopPage = () => {
     page * ITEMS_PER_PAGE
   );
 
-  // ✅ Unieke & genormaliseerde filters
   const categories = Array.from(
     new Map(
       products
         .map((p) => normalizeToObject(p.category))
-        .filter((c) => c.name !== "Unknown") // optioneel
+        .filter((c) => c.name !== "Unknown")
         .map((obj) => [obj._id, obj])
     ).values()
   );
@@ -75,7 +89,7 @@ const ShopPage = () => {
     new Map(
       products
         .map((p) => normalizeToObject(p.rarity))
-        .filter((r) => r.name !== "Unknown") // optioneel
+        .filter((r) => r.name !== "Unknown")
         .map((obj) => [obj._id, obj])
     ).values()
   );
@@ -87,15 +101,16 @@ const ShopPage = () => {
         setParams={setSearchParams}
         categories={categories}
         rarities={rarities}
+        types={types}
       />
       <ProductGridComponent
         products={paginated}
-        filters={{ category, rarity, sort, page }}
+        filters={{ category, rarity, type, sort, page }}
       />
       <PaginationComponent
         totalItems={totalItems}
         itemsPerPage={ITEMS_PER_PAGE}
-        filters={{ category, rarity, sort }}
+        filters={{ category, rarity, type, sort }}
         page={page}
         setParams={setSearchParams}
       />

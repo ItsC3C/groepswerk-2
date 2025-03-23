@@ -14,30 +14,36 @@ export function ProductCard({
   price,
   hitPoints,
   abilities = [],
-  discount = 0, //  Default discount to 0 if missing
+  discount = 0,
+  types = [],
 }: PokemonCard) {
   const dispatch = useDispatch();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
   const isInWishlist = wishlist.includes(_id);
 
-  // Hide cards with no price
-  if (price === undefined || price === null) {
-    return null; // Don't render if no price
-  }
+  if (price === undefined || price === null) return null;
 
-  // Use discounted price instead of original price if discount is applied
   const discountedPrice =
     discount > 0 ? price - (price * discount) / 100 : price;
+
+  // ✅ Normaliseer types: string → object
+  const safeTypes = types.map((t, index) =>
+    typeof t === "string"
+      ? {
+          _id: t,
+          name: t,
+          img: "/placeholder-type.png", // pas dit aan met je eigen fallback img
+        }
+      : t
+  );
 
   return (
     <div className={styles.productCard}>
       <div className={styles.imageContainer}>
         <img src={imageURL} alt={name} />
 
-        {/* Show discount if applicable */}
         {discount > 0 && <div className={styles.discount}>-{discount}%</div>}
 
-        {/* Only show "Special Ability!" label if NO discount exists */}
         {discount === 0 && abilities.length > 1 && abilities[1] !== null && (
           <div className={styles.specialAbility}>Special Ability!</div>
         )}
@@ -78,11 +84,8 @@ export function ProductCard({
         <h3 className={styles.productName}>{name}</h3>
 
         <div className={styles.pricing}>
-          {/* If price exists, show formatted price; otherwise, show 'N/A' */}
           <span className={styles.currentPrice}>
-            {price !== undefined && price !== null
-              ? `$${discountedPrice.toFixed(2)}`
-              : "N/A"}
+            ${discountedPrice.toFixed(2)}
           </span>
           {discount > 0 && (
             <span className={styles.originalPrice}>${price.toFixed(2)}</span>
@@ -92,6 +95,21 @@ export function ProductCard({
         <div className={styles.stats}>
           <span className={styles.hitPoints}>HP: {hitPoints}</span>
         </div>
+
+        {/* ✅ Show type icons */}
+        {safeTypes.length > 0 && (
+          <div className={styles.types}>
+            {safeTypes.map((type) => (
+              <img
+                key={type._id}
+                src={type.img}
+                alt={type.name}
+                title={type.name}
+                className={styles.typeIcon}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

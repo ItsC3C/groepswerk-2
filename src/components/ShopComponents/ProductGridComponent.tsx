@@ -10,6 +10,7 @@ interface ProductGridProps {
     rarity: string;
     sort: string;
     page: number;
+    type: string;
   };
 }
 

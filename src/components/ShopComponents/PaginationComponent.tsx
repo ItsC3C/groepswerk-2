@@ -9,6 +9,7 @@ interface PaginationProps {
     category: string;
     rarity: string;
     sort: string;
+    type: string;
   };
 }
 
