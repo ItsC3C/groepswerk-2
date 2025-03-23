@@ -88,7 +88,9 @@ export function OurProducts() {
       </div>
 
       <div className={styles.viewAll}>
-        <Button variant="confirm">View All Products</Button>
+        <Button variant="confirm" to="/shop">
+          View All Products
+        </Button>
       </div>
     </section>
   );

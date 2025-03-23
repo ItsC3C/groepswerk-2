@@ -17,17 +17,27 @@ export function ProductCard({
   hitPoints,
   abilities = [],
   discount = 0,
+  types = [],
 }: PokemonCard) {
   const dispatch = useDispatch();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
   const isInWishlist = wishlist.includes(_id);
 
-  if (price === undefined || price === null) {
-    return null;
-  }
+  if (price === undefined || price === null) return null;
 
   const discountedPrice =
     discount > 0 ? price - (price * discount) / 100 : price;
+
+  // ✅ Normaliseer types: string → object
+  const safeTypes = types.map((t, index) =>
+    typeof t === "string"
+      ? {
+          _id: t,
+          name: t,
+          img: "/placeholder-type.png", // pas dit aan met je eigen fallback img
+        }
+      : t
+  );
 
   return (
     <div className={styles.productCard}>
@@ -85,9 +95,7 @@ export function ProductCard({
 
         <div className={styles.pricing}>
           <span className={styles.currentPrice}>
-            {price !== undefined && price !== null
-              ? `$${discountedPrice.toFixed(2)}`
-              : "N/A"}
+            ${discountedPrice.toFixed(2)}
           </span>
           {discount > 0 && (
             <span className={styles.originalPrice}>${price.toFixed(2)}</span>
@@ -97,6 +105,21 @@ export function ProductCard({
         <div className={styles.stats}>
           <span className={styles.hitPoints}>HP: {hitPoints}</span>
         </div>
+
+        {/* ✅ Show type icons */}
+        {safeTypes.length > 0 && (
+          <div className={styles.types}>
+            {safeTypes.map((type) => (
+              <img
+                key={type._id}
+                src={type.img}
+                alt={type.name}
+                title={type.name}
+                className={styles.typeIcon}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

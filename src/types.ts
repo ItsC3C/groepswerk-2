@@ -22,8 +22,9 @@ export interface PokemonCard {
   types: string[];
   price: number;
   originalPrice?: number;
-  rarity: string;
+  rarity: string | { _id: string; name: string };
   discount?: number;
+  category: string | { _id: string; name: string };
 }
 
 export interface FaqItem {
