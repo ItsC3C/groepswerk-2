@@ -43,6 +43,13 @@ const cartSlice = createSlice({
       state.items = [];
       localStorage.removeItem("cart"); // clear cart from local storage
     },
+    reduceFromCart: (state, action: PayloadAction<string>) => {
+      const item = state.items.find((item) => item.id === action.payload);
+      if (item) {
+        item.quantity -= 1;
+      }
+      saveCartToLocalStorage(state.items); // Save cart to local storage
+    },
   },
 
   // 🔴 api logica voor later😊
@@ -54,5 +61,5 @@ const cartSlice = createSlice({
   // },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, reduceFromCart } = cartSlice.actions;
 export default cartSlice.reducer;

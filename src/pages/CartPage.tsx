@@ -7,6 +7,10 @@ import CartItemListComponents from "../components/CartComponents/CartItemListCom
 import ReturnButtonsComponents from "../components/CartComponents/ReturButtonsComponent";
 import CouponComponent from "../components/CartComponents/CouponComponent";
 import CartTotalComponent from "../components/CartComponents/CartTotalComponent";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { addToCart, removeFromCart, reduceFromCart } from "../store/cartSlice";
+import { useDispatch } from "react-redux";
 
 // Update CartItem so that id is a string (matching the imported type)
 interface CartItem {
@@ -15,41 +19,36 @@ interface CartItem {
   name: string;
   image: string;
   price: number;
-  originalPrice: number;
-  rating: number;
-  reviews: number;
-  discount: number;
+  // originalPrice: number;
+  // rating: number;
+  // reviews: number;
+  // discount: number;
 }
 
 export default function CartPage() {
-  const [cartItems, setCartItems] = React.useState<CartItem[]>([
-    {
-      id: "1", // id now as a string
-      quantity: 1,
-      name: "IPS LCD Gaming Monitor",
-      image: FS3,
-      price: 370,
-      originalPrice: 400,
-      rating: 5,
-      reviews: 99,
-      discount: 30,
-    },
-    {
-      id: "2", // id now as a string
-      quantity: 2,
-      name: "HAVIT HV-G92 Gamepad",
-      image: FS1,
-      price: 120,
-      originalPrice: 160,
-      rating: 5,
-      reviews: 88,
-      discount: 40,
-    },
-  ]);
+  const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart.items);
+  const products = useSelector((state: RootState) => state.products.products);
+  
+  const items = cart.map((el)=>{
+    const result = products.find((product)=>product._id==el.id);
+    if(result){
+      return{
+        id: el.id,
+        name: result.name,
+        quantity: el.quantity,
+        price: result.price,
+        image: result.imageURL
+      }
+    }
+  }).filter((el)=>el!==undefined);
+  
+  const [cartItems, setCartItems] = React.useState<CartItem[]>(items);
 
   // Handlers for cart actions (the types now match the imported type)
   const handleRemove = (id: string): void => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    dispatch(removeFromCart(id));
   };
 
   const handleIncrease = (id: string): void => {
@@ -58,6 +57,7 @@ export default function CartPage() {
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
+    dispatch(addToCart(id));
   };
 
   const handleDecrease = (id: string): void => {
@@ -68,6 +68,11 @@ export default function CartPage() {
           : item
       )
     );
+    cartItems.forEach((el)=>{
+      if (el.id == id && el.quantity > 1){
+        dispatch(reduceFromCart(id));
+      }
+    })
   };
 
   // Calculate total cart amount
@@ -90,7 +95,7 @@ export default function CartPage() {
           <ReturnButtonsComponents />
           <div className={styles.cartBottom}>
             <CouponComponent />
-            <CartTotalComponent total={total} />
+            <CartTotalComponent total={Number(total.toFixed(2))} />
           </div>
         </div>
       </div>
