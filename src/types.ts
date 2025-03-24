@@ -40,3 +40,9 @@ export interface PokemonBundle {
   img: string;
   price: number;
 }
+
+export type User = {
+  name: string;
+  email: string;
+  password: string;
+};
