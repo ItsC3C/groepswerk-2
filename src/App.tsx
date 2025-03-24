@@ -44,7 +44,8 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/shop" element={<ShopPage />}>
           <Route index element={<ProductsPage />} />
-          <Route path="bundles" element={<BundlesPage />} />
+          <Route path=":type" element={<BundlesPage />} />
+          <Route path=":type/:series" element={<BundlesPage />} />
         </Route>
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/cart" element={<CartPage />} />
