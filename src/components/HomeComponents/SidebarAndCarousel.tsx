@@ -4,15 +4,11 @@ import styles from "../../css/Components-css/HomeCSS/SidebarAndCarousel.module.c
 
 export function SidebarAndCarousel() {
   const categories = [
-    "Woman's Fashion",
-    "Men's Fashion",
-    "Electronics",
-    "Home & Lifestyle",
-    "Medicine",
-    "Sports & Outdoor",
-    "Baby's & Toys",
-    "Groceries & Pets",
-    "Health & Beauty",
+    { label: "Cards", slug: "cards" },
+    { label: "Booster Packs", slug: "booster-packs" },
+    { label: "Booster Bundles", slug: "booster-bundles" },
+    { label: "Booster Boxes", slug: "booster-boxes" },
+    { label: "Elite Trainer Boxes", slug: "elite-trainer-boxes" },
   ];
 
   const carouselImages = [
@@ -57,8 +53,12 @@ export function SidebarAndCarousel() {
       <aside className={styles.sidebar}>
         <nav className={styles.nav}>
           {categories.map((category, index) => (
-            <a key={category} href="#" className={styles.navLink}>
-              {category}
+            <a
+              key={category.slug}
+              href={`/shop/${category.slug}`}
+              className={styles.navLink}
+            >
+              {category.label}
               {(index === 0 || index === 1) && <svg className={styles.icon} />}
             </a>
           ))}
