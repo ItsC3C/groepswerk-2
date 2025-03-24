@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "**/*.js", "destination": ":splat" },
+    { "source": "**", "destination": "/200.html" }
+  ]
+}
