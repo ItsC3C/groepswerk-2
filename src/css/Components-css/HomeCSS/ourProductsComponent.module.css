@@ -104,17 +104,6 @@
   }
 
   .productCardWrapper {
-    position: relative;
-
-    .newBadge {
-      position: absolute;
-      top: 0.75rem;
-      left: 0.75rem;
-      background: #00ff66;
-      color: black;
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-    }
 
     .colorOptions {
       display: flex;
