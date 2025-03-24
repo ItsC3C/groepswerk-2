@@ -4,8 +4,8 @@ import styles from "../../css/Components-css/HomeCSS/SidebarAndCarousel.module.c
 
 export function SidebarAndCarousel() {
   const categories = [
-    { label: "Cards", slug: "cards" },
-    { label: "Booster Packs", slug: "booster-packs" },
+    { label: "Cards", slug: " " },
+    { label: "Booster Packs", slug: "booster-boxes" },
     { label: "Booster Bundles", slug: "booster-bundles" },
     { label: "Booster Boxes", slug: "booster-boxes" },
     { label: "Elite Trainer Boxes", slug: "elite-trainer-boxes" },
@@ -80,14 +80,14 @@ export function SidebarAndCarousel() {
                 Check Our Rare Pokemon Collection
               </h1>
               <p className={styles.discount}>Up to 10% off Voucher</p>
-              <a href="#" className={styles.shopNow}>
+              <a href="/shop" className={styles.shopNow}>
                 <span>Shop Now</span>
                 <svg className={styles.shopIcon} />
               </a>
             </div>
           </div>
           <div className={styles.heroImageContainer}>
-            <a href="#">
+            <a href="/shop">
               <img
                 src={carouselImages[currentIndex]}
                 alt={`Slide ${currentIndex + 1}`}

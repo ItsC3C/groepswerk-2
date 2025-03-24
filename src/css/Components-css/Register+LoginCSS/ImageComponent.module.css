@@ -1,7 +1,14 @@
-.imageHolder {
+@media (max-width: 868px) {
+  .imageHolder {
+    display: none;
+  }
+}
+.imageHolder .image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 
-    .image {
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-    }
+  max-width: 960px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
