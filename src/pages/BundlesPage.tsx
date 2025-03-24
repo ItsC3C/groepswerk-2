@@ -15,25 +15,24 @@ const BundlesPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { bundles, status } = useSelector((state: RootState) => state.bundles);
   const [searchParams, setSearchParams] = useSearchParams();
-
-  // ✅ URL: /shop/:typeSlug → bv. "elite-trainer-boxes"
   const { type: typeSlug = "all", series = "all" } = useParams();
 
-  // ✅ Convert slug naar echte type (bv. "etb")
   const type = slugToType[typeSlug] || "all";
-
   const sort = searchParams.get("sort") || "";
   const page = Number(searchParams.get("page") ?? 1);
 
+  // ✅ Fetch bundles als ze nog niet zijn geladen
   useEffect(() => {
-    if (status === "idle") {
+    if (status === "idle" || bundles.length === 0) {
       dispatch(fetchBundles());
     }
-  }, [dispatch, status]);
+  }, [dispatch, status, bundles.length]);
 
+  // ✅ Wacht op laden
   if (status === "loading") return <Loading />;
   if (status === "error") return <p>Failed to load bundles.</p>;
 
+  // ✅ Filtering
   const filtered = bundles
     .filter((b) => type === "all" || b.type === type)
     .filter((b) => series === "all" || b.series === series)
@@ -57,6 +56,7 @@ const BundlesPage = () => {
       <BundleFiltersComponent bundleTypes={allTypes} bundleSeries={allSeries} />
 
       <BundleGridComponent bundles={paginated} />
+
       <PaginationComponent
         totalItems={totalItems}
         itemsPerPage={ITEMS_PER_PAGE}
