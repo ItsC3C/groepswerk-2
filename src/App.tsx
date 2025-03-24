@@ -26,7 +26,7 @@ import PaymentPage from "./pages/PaymentPage";
 import OrdersPage from "./pages/OrdersPage";
 import ReturnPage from "./pages/ReturnPage";
 import CancellationPage from "./pages/CancellationPage";
-
+import BundleDetailPage from "./pages/BundleDetailPage";
 // PrivateRoute ensures a user is logged in before rendering child components.
 const PrivateRoute = ({ children }: { children: ReactNode }): any => {
   const user = useSelector((state: any) => state.user.user);
@@ -94,6 +94,7 @@ const App = (): any => {
           <Route path="returns" element={<ReturnPage />} />
           <Route path="cancellations" element={<CancellationPage />} />
         </Route>
+        <Route path="/bundle/:slug" element={<BundleDetailPage />} />
         <Route path="/product/:slug" element={<DetailPage />} />
         <Route
           path="/admin"
