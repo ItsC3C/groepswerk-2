@@ -17,6 +17,18 @@ const DetailPage: React.FC = () => {
     )
   );
 
+  const bundle = useSelector((state: RootState) =>
+    state.bundles.bundles.find(
+      (b) => slugify(b.name, { lower: true, strict: true }) === slug
+    )
+  );
+
+  const item = product || bundle;
+
+  if (!item) {
+    return <div>Item not found</div>;
+  }
+
   if (!product) {
     return <div>Product not found</div>;
   }

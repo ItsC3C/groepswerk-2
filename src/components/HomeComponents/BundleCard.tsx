@@ -6,7 +6,7 @@ import { RootState } from "../../store/store";
 import { addToCart } from "../../store/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../../store/wishlistSlice";
 import { PokemonBundle } from "../../types";
-
+import slugify from "slugify";
 export const BundleCard: React.FC<PokemonBundle> = ({
   _id,
   name,
@@ -40,7 +40,7 @@ export const BundleCard: React.FC<PokemonBundle> = ({
           </Button>
           <Button
             variant="confirm"
-            to={`/bundle/${_id}`}
+            to={`/bundle/${slugify(name, { lower: true, strict: true })}`} // ✅ navigatie via slug
             className={styles.actionButton}
           >
             <Eye className={styles.icon} />
