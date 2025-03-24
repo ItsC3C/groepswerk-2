@@ -36,18 +36,6 @@ export function SidebarAndCarousel() {
     return () => clearTimeout(timeout);
   }, [currentIndex]);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === carouselImages.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? carouselImages.length - 1 : prev - 1
-    );
-  };
-
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>

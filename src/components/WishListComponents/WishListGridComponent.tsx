@@ -1,6 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { removeFromWishlist } from "../../store/wishlistSlice";
 import { ProductCard } from "../HomeComponents/prodcutcardComponent";
 import styles from "../../css/Components-css/WishListCSS/WishListGridComponent.module.css";
 import { PokemonCard } from "../../types";
@@ -10,12 +8,11 @@ interface WishListGridProps {
 }
 
 const WishListGridComponent: React.FC<WishListGridProps> = ({ items }) => {
-  const dispatch = useDispatch();
-
   return (
     <div className={styles.wishlistGrid}>
       {items.map((item) => (
         <ProductCard
+          category={""}
           key={item._id}
           _id={item._id}
           name={item.name}

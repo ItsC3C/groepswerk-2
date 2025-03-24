@@ -4,13 +4,13 @@ import styles from "../css/Button.module.css";
 
 type LinkButtonProps = {
   to: string;
-  variant?: "confirm" | "navigation" | "danger"; // ✅ Added "danger"
+  variant?: "confirm" | "navigation" | "danger";
   children: React.ReactNode;
 } & React.ComponentPropsWithoutRef<typeof Link>;
 
 type RegularButtonProps = {
   to?: undefined;
-  variant?: "confirm" | "navigation" | "danger"; // ✅ Added "danger"
+  variant?: "confirm" | "navigation" | "danger";
   children: React.ReactNode;
 } & React.ComponentPropsWithoutRef<"button">;
 
@@ -19,13 +19,12 @@ type ButtonProps = LinkButtonProps | RegularButtonProps;
 const Button: React.FC<ButtonProps> = (props) => {
   const { variant = "confirm", children } = props;
 
-  // ✅ Apply correct styles based on variant
   const className = `${styles.button} ${
     variant === "confirm"
       ? styles.confirm
       : variant === "navigation"
       ? styles.navigation
-      : styles.danger // ✅ Apply "danger" styling
+      : styles.danger
   }`;
 
   if ("to" in props && props.to) {

@@ -1,12 +1,10 @@
 import { Outlet, NavLink } from "react-router";
 import styles from "../css/Components-css/MyAccountCSS/MyAccountPage.module.css";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 import { clearUser } from "../store/userSlice";
 
 const MyAccountPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   return (
     <div className={styles.accountContainer}>

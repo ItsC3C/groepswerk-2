@@ -7,16 +7,15 @@ import TextInput from "../components/AccountComponents/TextInputComponent";
 import FormSection from "../components/AccountComponents/FormSectionComponent";
 import styles from "../css/Components-css/MyAccountCSS/MyProfilePage.module.css";
 import Button from "../components/ButtonComponent";
-import { RootState } from "../store/store"; // Import RootState
+import { RootState } from "../store/store";
 
 const MyProfilePage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const user = useSelector((state: RootState) => state.user.user); // Update useSelector
-  const status = useSelector((state: RootState) => state.user.status); // Update useSelector
+  const user = useSelector((state: RootState) => state.user.user);
+  const status = useSelector((state: RootState) => state.user.status);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,12 +24,10 @@ const MyProfilePage = () => {
     if (user) {
       setName(user.name);
       setEmail(user.email);
-      // setAddress(user.address);
     }
   }, [user]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    // Change handleSubmit signature
     e.preventDefault();
     try {
       await dispatch(updateUser({ name, email })).unwrap();
@@ -52,7 +49,7 @@ const MyProfilePage = () => {
             value={name}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setName(e.target.value)
-            } // Add type to onChange
+            }
           />
         </FormSection>
 
@@ -64,16 +61,8 @@ const MyProfilePage = () => {
             value={email}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
-            } // Add type to onChange
+            }
           />
-          {/* <TextInput
-            label=""
-            placeholder="Address"
-            value={address}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setAddress(e.target.value)
-            } // Add type to onChange
-          /> */}
         </FormSection>
 
         <FormSection title="Password Changes">
@@ -84,7 +73,7 @@ const MyProfilePage = () => {
             value={currentPassword}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setCurrentPassword(e.target.value)
-            } // Add type to onChange
+            }
           />
           <TextInput
             label=""
@@ -93,7 +82,7 @@ const MyProfilePage = () => {
             value={newPassword}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setNewPassword(e.target.value)
-            } // Add type to onChange
+            }
           />
           <TextInput
             label=""
@@ -102,7 +91,7 @@ const MyProfilePage = () => {
             value={confirmPassword}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setConfirmPassword(e.target.value)
-            } // Add type to onChange
+            }
           />
         </FormSection>
 
@@ -112,10 +101,8 @@ const MyProfilePage = () => {
             type="button"
             onClick={() => {
               if (user) {
-                // Guard user null
                 setName(user.name);
                 setEmail(user.email);
-                // setAddress(user.address);
               }
             }}
             disabled={status === "loading"}

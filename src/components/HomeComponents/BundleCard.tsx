@@ -13,7 +13,6 @@ export const BundleCard: React.FC<PokemonBundle> = ({
   img,
   series,
   price,
-  type,
 }) => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
@@ -40,7 +39,7 @@ export const BundleCard: React.FC<PokemonBundle> = ({
           </Button>
           <Button
             variant="confirm"
-            to={`/bundle/${slugify(name, { lower: true, strict: true })}`} // ✅ navigatie via slug
+            to={`/bundle/${slugify(name, { lower: true, strict: true })}`}
             className={styles.actionButton}
           >
             <Eye className={styles.icon} />

@@ -5,12 +5,10 @@ interface FiltersProps {
   params: URLSearchParams;
   setParams: React.Dispatch<React.SetStateAction<URLSearchParams>>;
 
-  // For ShopPage
   categories?: { _id: string; name: string }[];
   rarities?: { _id: string; name: string }[];
   types?: { _id: string; name: string; img: string }[];
 
-  // For BundlesPage
   bundleTypes?: string[];
   bundleSeries?: string[];
 }
@@ -41,7 +39,6 @@ const FiltersComponent: React.FC<FiltersProps> = ({
 
   return (
     <section className={styles.filters}>
-      {/* ShopPage: Category */}
       {categories.length > 0 && (
         <select
           value={currentCategory}
@@ -56,7 +53,6 @@ const FiltersComponent: React.FC<FiltersProps> = ({
         </select>
       )}
 
-      {/* ShopPage: Rarity */}
       {rarities.length > 0 && (
         <select
           value={currentRarity}
@@ -71,7 +67,6 @@ const FiltersComponent: React.FC<FiltersProps> = ({
         </select>
       )}
 
-      {/* ShopPage: Types (icon support) */}
       {types.length > 0 && (
         <select
           value={currentType}
@@ -86,7 +81,6 @@ const FiltersComponent: React.FC<FiltersProps> = ({
         </select>
       )}
 
-      {/* BundlesPage: Bundle Type */}
       {bundleTypes.length > 0 && (
         <select
           value={currentType}
@@ -101,7 +95,6 @@ const FiltersComponent: React.FC<FiltersProps> = ({
         </select>
       )}
 
-      {/* BundlesPage: Series */}
       {bundleSeries.length > 0 && (
         <select
           value={currentSeries}
@@ -116,7 +109,6 @@ const FiltersComponent: React.FC<FiltersProps> = ({
         </select>
       )}
 
-      {/* Sort Dropdown */}
       <select
         value={sort}
         onChange={(e) => updateParam("sort", e.target.value)}

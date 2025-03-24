@@ -120,14 +120,12 @@ export function Header() {
                     >
                       <span>{p.name}</span>
 
-                      {/* Show rarity if it's a Pokemon card */}
                       {"rarity" in p && p.rarity?.name && (
                         <span className={styles.rarityTag}>
                           {p.rarity.name}
                         </span>
                       )}
 
-                      {/* Show label if it's a bundle */}
                       {"price" in p && !("rarity" in p) && (
                         <span className={styles.bundleTag}>Bundle</span>
                       )}

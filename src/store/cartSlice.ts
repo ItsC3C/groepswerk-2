@@ -8,7 +8,7 @@ interface CartItem {
 interface CartState {
   items: CartItem[];
 }
-// load and save cart from local storage
+
 const loadCartFromLocalStorage = (): CartItem[] => {
   const storedCart = localStorage.getItem("cart");
   return storedCart ? JSON.parse(storedCart) : [];
@@ -33,32 +33,24 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ id: action.payload, quantity: 1 });
       }
-      saveCartToLocalStorage(state.items); // Save cart to local storage
+      saveCartToLocalStorage(state.items);
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
-      saveCartToLocalStorage(state.items); // Save cart to local storage
+      saveCartToLocalStorage(state.items);
     },
     clearCart: (state) => {
       state.items = [];
-      localStorage.removeItem("cart"); // clear cart from local storage
+      localStorage.removeItem("cart");
     },
     reduceFromCart: (state, action: PayloadAction<string>) => {
       const item = state.items.find((item) => item.id === action.payload);
       if (item) {
         item.quantity -= 1;
       }
-      saveCartToLocalStorage(state.items); // Save cart to local storage
+      saveCartToLocalStorage(state.items);
     },
   },
-
-  // 🔴 api logica voor later😊
-  // extraReducers: (builder) => {
-  //   builder.addCase(fetchCart.fulfilled, (state, action) => {
-  //     state.items = action.payload;
-  //     saveCartToLocalStorage(action.payload);
-  //   });
-  // },
 });
 
 export const { addToCart, removeFromCart, reduceFromCart } = cartSlice.actions;

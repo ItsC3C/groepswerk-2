@@ -27,7 +27,7 @@ import OrdersPage from "./pages/OrdersPage";
 import ReturnPage from "./pages/ReturnPage";
 import CancellationPage from "./pages/CancellationPage";
 import BundleDetailPage from "./pages/BundleDetailPage";
-// PrivateRoute ensures a user is logged in before rendering child components.
+
 const PrivateRoute = ({ children }: { children: ReactNode }): any => {
   const user = useSelector((state: any) => state.user.user);
 
@@ -45,7 +45,6 @@ const PrivateRoute = ({ children }: { children: ReactNode }): any => {
   return user ? <>{children}</> : <Navigate to="/login" replace />;
 };
 
-// ExternalRedirect immediately redirects to an external URL.
 const ExternalRedirect = ({ url }: { url: string }): null => {
   useEffect(() => {
     window.location.href = url;

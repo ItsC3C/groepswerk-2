@@ -34,12 +34,5 @@ const wishlistSlice = createSlice({
   },
 });
 
-// api logic
-// extraReducers: (builder) => {
-//   builder.addCase(fetchWishlist.fulfilled, (state, action) => {
-//     state.items = action.payload;
-//   });
-// },
-
 export const { addToWishlist, removeFromWishlist } = wishlistSlice.actions;
 export default wishlistSlice.reducer;

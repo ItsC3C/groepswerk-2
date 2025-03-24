@@ -38,6 +38,7 @@ const JustForYouComponent: React.FC<JustForYouComponentProps> = ({ items }) => {
       <div className={styles.justForYouGrid}>
         {items.map((item) => (
           <ProductCard
+            category={""}
             _id={item._id}
             name={item.name}
             imageURL={item.image}

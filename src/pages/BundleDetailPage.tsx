@@ -17,24 +17,20 @@ const BundleDetailPage: React.FC = () => {
   const bundles = useSelector((state: RootState) => state.bundles.bundles);
   const status = useSelector((state: RootState) => state.bundles.status);
 
-  // ✅ Fetch bundles bij mount
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchBundles());
     }
   }, [dispatch, status]);
 
-  // ✅ Wacht op laden
   if (status === "loading" || bundles.length === 0) {
     return <Loading />;
   }
 
-  // ✅ Zoek bundle op basis van slug
   const bundle = bundles.find(
     (b) => slugify(b.name, { lower: true, strict: true }) === slug
   );
 
-  // ✅ Toon pas "not found" als status succeeded is
   if (!bundle && status === "success") {
     return <div>Bundle not found</div>;
   }
@@ -56,8 +52,6 @@ const BundleDetailPage: React.FC = () => {
           type={bundle.type}
         />
       </div>
-
-      {/* Related bundles? Laat maar weten bro 😎 */}
     </div>
   );
 };

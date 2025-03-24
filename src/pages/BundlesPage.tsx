@@ -21,18 +21,15 @@ const BundlesPage = () => {
   const sort = searchParams.get("sort") || "";
   const page = Number(searchParams.get("page") ?? 1);
 
-  // ✅ Fetch bundles als ze nog niet zijn geladen
   useEffect(() => {
     if (status === "idle" || bundles.length === 0) {
       dispatch(fetchBundles());
     }
   }, [dispatch, status, bundles.length]);
 
-  // ✅ Wacht op laden
   if (status === "loading") return <Loading />;
   if (status === "error") return <p>Failed to load bundles.</p>;
 
-  // ✅ Filtering
   const filtered = bundles
     .filter((b) => type === "all" || b.type === type)
     .filter((b) => series === "all" || b.series === series)

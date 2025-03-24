@@ -14,10 +14,8 @@ export function ProductCard({
   name,
   imageURL,
   price,
-  hitPoints,
   abilities = [],
   discount = 0,
-  types = [],
 }: PokemonCard) {
   const dispatch = useDispatch();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
@@ -27,17 +25,6 @@ export function ProductCard({
 
   const discountedPrice =
     discount > 0 ? price - (price * discount) / 100 : price;
-
-  // ✅ Normaliseer types: string → object
-  const safeTypes = types.map((t, index) =>
-    typeof t === "string"
-      ? {
-          _id: t,
-          name: t,
-          img: "/placeholder-type.png", // pas dit aan met je eigen fallback img
-        }
-      : t
-  );
 
   return (
     <div className={styles.productCard}>
