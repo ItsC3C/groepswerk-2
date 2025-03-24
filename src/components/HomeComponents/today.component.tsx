@@ -9,6 +9,7 @@ import styles from "../../css/Components-css/HomeCSS/todayComponent.module.css";
 import Button from "../ButtonComponent";
 import { Loading } from "../LoadingComponent/Loading";
 import { Link } from "react-router-dom";
+import { TimeUnit } from "../TimeUnitComponent"; // Import TimeUnit component
 
 export function FlashSales() {
   const dispatch = useDispatch<AppDispatch>();
@@ -44,6 +45,8 @@ export function FlashSales() {
     }
   };
 
+  const target = Date.now() + 1 * 24 * 60 * 60 * 1000;
+
   return (
     <section className={styles.flashSales}>
       <div className={styles.header}>
@@ -56,17 +59,10 @@ export function FlashSales() {
         </div>
 
         <div className={styles.countdown}>
-          {["03", "23", "19", "56"].map((time, index) => (
-            <div key={index} className={styles.wrapper}>
-              <div className={styles.time}>
-                <span>{time}</span>
-                <span className={styles.label}>
-                  {["Days", "Hours", "Minutes", "Seconds"][index]}
-                </span>
-              </div>
-              {index < 3 && <span className={styles.separator}>:</span>}
-            </div>
-          ))}
+          <TimeUnit target={target} unit="days" label="Days" />
+          <TimeUnit target={target} unit="hours" label="Hours" />
+          <TimeUnit target={target} unit="minutes" label="Minutes" />
+          <TimeUnit target={target} unit="seconds" label="Seconds" />
         </div>
 
         <div className={styles.navigation}>

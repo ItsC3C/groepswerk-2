@@ -8,7 +8,7 @@ export function Header() {
       <div className={styles.container}>
         <div className={styles.headerContent}>
           <NavLink to="/" className={styles.logo}>
-            Exclusive
+            Pokéstore
           </NavLink>
 
           <nav className={styles.nav}>

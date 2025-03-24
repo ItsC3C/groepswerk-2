@@ -1,0 +1,21 @@
+.timeUnit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    border-radius: 50%;
+    width: 62px;
+    height: 62px;
+    color: white;
+
+    .value {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .label {
+        font-size: 0.75rem;
+        margin-top: 0.125rem;
+    }
+}

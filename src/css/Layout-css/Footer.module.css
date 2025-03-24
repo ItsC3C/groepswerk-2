@@ -10,17 +10,12 @@
         padding: 0 1rem;
 
         .footerGrid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            padding-bottom: 4rem;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 1rem;
 
-            @media (min-width: 640px) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            @media (min-width: 1024px) {
-                grid-template-columns: repeat(5, 1fr);
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
             }
         }
 
@@ -104,31 +99,6 @@
                     height: 24px;
                     stroke: white;
                 }
-            }
-        }
-
-        .appDownload {
-            height: 120px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 1rem;
-
-            .qrCode {
-                grid-column: 1;
-                grid-row: span 2;
-                background: black;
-                padding: 0.5rem;
-                border-radius: 4px;
-                display: inline-block;
-            }
-
-            .storeLinks {
-                padding: 0.5rem;
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
             }
         }
 
