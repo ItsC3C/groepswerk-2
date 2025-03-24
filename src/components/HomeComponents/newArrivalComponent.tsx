@@ -40,7 +40,7 @@ export function NewArrival() {
           <div className={styles.imageContainer}>
             <img
               src={PrismaticETB}
-              alt="PrismaticE Evolutions Elite Trainerbox"
+              alt="Prismatic Evolutions Elite Trainerbox"
             />
           </div>
           <div className={styles.productInfo}>
@@ -49,7 +49,7 @@ export function NewArrival() {
               Elite trainer box featuring exclusive evolutions, premium cards,
               and accessories.
             </p>
-            <Link to="/shop/elite-trainer-box/prismatic-evolutions">
+            <Link to="/bundle/prismatic-evolutions-elite-trainer-box">
               Shop Now
             </Link>
           </div>
@@ -63,7 +63,7 @@ export function NewArrival() {
                 Complete 151 Pokémon bundle featuring classic cards and
                 collectibles.
               </p>
-              <Link to="/shop/bundles/151">Shop Now</Link>
+              <Link to="/bundle/151-booster-bundle">Shop Now</Link>
             </div>
             <img src={Bundle151} alt="151 Bundle" />
           </div>
@@ -88,7 +88,7 @@ export function NewArrival() {
                 <div className={styles.productInfo}>
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
-                  <a href="#">Shop Now</a>
+                  <Link to="/shop">Shop Now</Link>
                 </div>
               </div>
             ))}
