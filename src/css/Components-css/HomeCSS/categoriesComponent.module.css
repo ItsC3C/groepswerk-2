@@ -49,19 +49,30 @@
 
     .categoryGrid {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+
+        @media (max-width: 767px) {
+            justify-content: center;
+        }
 
         .categoryLink {
             text-decoration: none;
+            width: calc(25% - 1rem);
+
+            @media (max-width: 767px) {
+                width: calc(50% - 1rem);
+            }
+
+            @media (max-width: 480px) {
+                width: 100%;
+            }
 
             .categoryButton {
-                width: 300px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
                 gap: 1rem;
                 aspect-ratio: 1;
                 border-radius: 4px;
@@ -76,7 +87,7 @@
                 }
 
                 .categoryIcon {
-                    width: 200px;
+                    width: 100%;
                     transition: transform 0.2s ease;
 
                     &:hover {
