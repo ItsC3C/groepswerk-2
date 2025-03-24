@@ -49,22 +49,6 @@
         }
     }
 
-    .loginPageActionContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        width: 100%;
-
-        .forgetPassword {
-            cursor: pointer;
-            color: #db4444;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
 
     .forgetAccount {
         .loginPageAlternateActionContainer {
